@@ -55,9 +55,10 @@ for a single team instead of the entire league.
 
 `?teamId=4,5,29` Can string team id together to get multiple teams
 
-`?stats=statsSingleSeasonPlayoffs` Speciy which stats to get. Not fully sure all of the values
+`?stats=statsSingleSeasonPlayoffs` Specify which stats to get. Not fully sure all of the values
 
-```{
+```
+{
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "teams" : [ {
     "id" : 1,
@@ -97,12 +98,13 @@ for a single team instead of the entire league.
     "franchiseId" : 23,
     "active" : true
   }, {
-  ```
+```
 
 `GET https://statsapi.web.nhl.com/api/v1/teams/ID/roster` Returns entire roster for a team
 including id value, name, jersey number and position details.
 
-```{
+```
+{
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "roster" : [ {
     "person" : {
@@ -127,7 +129,8 @@ Does not show inactive divisions
 
 `GET https://statsapi.web.nhl.com/api/v1/divisions/ID` Same as above but only for a
 single division. This can show old inactive divisions such as 13 Patrick.
-```{
+```
+{
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "divisions" : [ {
     "id" : 17,
@@ -149,7 +152,8 @@ for all current NHL conferences.
 
 `GET https://statsapi.web.nhl.com/api/v1/conferences/ID` Same as above but for
 specific conference, also can look up id 7 for World Cup of Hockey.
-```{
+```
+{
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "conferences" : [ {
     "id" : 6,
@@ -172,7 +176,8 @@ specific conference, also can look up id 7 for World Cup of Hockey.
 ### <a name="people"></a>People
 `GET https://statsapi.web.nhl.com/api/v1/people/ID` Gets details for a player, must
 specify the id value in order to return data.
-```{
+```
+{
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "people" : [ {
     "id" : 8477474,
@@ -217,7 +222,8 @@ for a player
 
 *note - stats have changed over the years, the below sample is for Wayne Gretzky
 and does not include things like evenTimeOnIce and other time related stats*
-```{
+```
+{
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "stats" : [ {
     "type" : {
@@ -249,7 +255,8 @@ and does not include things like evenTimeOnIce and other time related stats*
 
 *however here is Alex Ovechkin's 20162017 season stats which include time information*
 
-```{
+```
+{
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "stats" : [ {
     "type" : {
@@ -291,7 +298,8 @@ and does not include things like evenTimeOnIce and other time related stats*
 }
 ```
 `?stats=homeAndAway&season=20162017` Provides a split between home and away games.
-```{
+```
+{
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "stats" : [ {
     "type" : {
@@ -380,7 +388,8 @@ and does not include things like evenTimeOnIce and other time related stats*
 
 `?stats=regularSeasonStatRankings&season=20162017` Returns where someone stands vs
 the rest of the league for a specific regularSeasonStatRankings
-```{
+```
+{
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "stats" : [ {
     "type" : {
@@ -411,7 +420,8 @@ the rest of the league for a specific regularSeasonStatRankings
 `?stats=goalsByGameSituation&season=20162017` Shows number on when goals for a
 player happened like how many in the shootout, how many in each period, etc.
 
-```{
+```
+{
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "stats" : [ {
     "type" : {
@@ -445,7 +455,8 @@ player happened like how many in the shootout, how many in each period, etc.
 
 `?stats=onPaceRegularSeason&season=20172018` This only works with the current
 in-progress season and shows **projected** totals based on current onPaceRegularSeason
-```{
+```
+{
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "stats" : [ {
     "type" : {
@@ -603,7 +614,8 @@ The first 4 digits identify the season of the game (ie. 2017 for the 2017-2018 s
 
 `GET https://statsapi.web.nhl.com/api/v1/schedule?teamId=30&startDate=2018-01-02&endDate=2018-01-02` Returns Minnesota Wild games for January 2, 2018 with attached linescores and broadcasts.
 
-```{
+```
+{
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "totalItems" : 1,
   "totalEvents" : 0,
@@ -896,7 +908,8 @@ for each team broken up by divisions
 `GET https://statsapi.web.nhl.com/api/v1/standingsTypes` Returns all the standings types
 to be used in order do get a specific standings
 
-```{
+```
+{
 [ {
   "name" : "regularSeason",
   "description" : "Regular Season Standings"
@@ -945,7 +958,8 @@ to be used in order do get a specific kind of player stats
 
 Ex:
 
-```{
+```
+{
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "stats" : [ {
     "type" : {
@@ -1041,7 +1055,8 @@ Ex:
 
 `GET https://statsapi.web.nhl.com/api/v1/draft/YEAR` Takes a YYYY format year and returns draft data
 
-```{
+```
+{
   "copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "drafts": [{
     "draftYear": 2017,
