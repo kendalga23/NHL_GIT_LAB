@@ -509,6 +509,10 @@ with a JSON viewer.
 than `feed/live` and is much more suitable for post-game details including goals,
 shots, PIMs, blocked, takeaways, giveaways and hits.
 
+`GET https://statsapi.web.nhl.com/api/v1/game/ID/linescore` Even fewer details than
+boxscore. Has goals, shots on goal, powerplay and goalie pulled status, number of 
+skaters and shootout information if applicable
+
 `GET http://statsapi.web.nhl.com/api/v1/game/ID/content` Complex endpoint returning
 multiple types of media relating to the game including videos of shots, goals and saves.
 
