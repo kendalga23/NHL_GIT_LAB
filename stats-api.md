@@ -29,6 +29,8 @@
 
 [Awards](#awards)
 
+[Venues](#venues)
+
 ---
 
 ### <a name="teams"></a>Teams
@@ -1147,5 +1149,23 @@ Ex:
     "homePageUrl": "http://www.nhl.com/cup/index.html",
     "link": "/api/v1/awards/1"
   }]
+}
+```
+
+### <a name="venues">Venues
+
+`GET https://statsapi.web.nhl.com/api/v1/venues` Get all NHL Venues in API database.
+
+`GET https://statsapi.web.nhl.com/api/v1/venues/ID` Get an NHL Venue.
+
+```json
+{
+  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2019. All Rights Reserved.",
+  "venues" : [ {
+    "id" : 5064,
+    "name" : "Pepsi Center",
+    "link" : "/api/v1/venues/5064",
+    "appEnabled" : true
+  } ]
 }
 ```
