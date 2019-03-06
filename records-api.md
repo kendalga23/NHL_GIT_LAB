@@ -65,7 +65,7 @@ and lastSeasonId and name of every team in the history of the nhl
 `/franchise-team-totals` Total stats
 for every franchise (ex roadTies, roadWins, etc)
 
-`/site/api/franchise-season-records?cayenneExp=franchiseId=ID` Drill-down into season records for a specific franhise
+`/site/api/franchise-season-records?cayenneExp=franchiseId=ID` Drill-down into season records for a specific franchise
 
 `/franchise-season-results?cayenneExp=franchiseId=24&sort=seasonId&dir=DESC` Returns every season result for a specified team, sorted by seasonId in descending order
 
