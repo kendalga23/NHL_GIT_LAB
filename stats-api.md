@@ -13,6 +13,8 @@
 
 [Game-IDs](#game-ids)
 
+[Tournaments](#tournaments)
+
 [Schedule](#schedule)
 
 [Standings](#standings)
@@ -522,6 +524,79 @@ since the given startTimecode. If the startTimecode param is missing, returns an
 
 #### <a name="game-ids">Game IDs
 The first 4 digits identify the season of the game (ie. 2017 for the 2017-2018 season). The next 2 digits give the type of game, where 01 = preseason, 02 = regular season, 03 = playoffs, 04 = all-star. The final 4 digits identify the specific game number. For regular season and preseason games, this ranges from 0001 to the number of games played. (1271 for seasons with 31 teams (2017 and onwards) and 1230 for seasons with 30 teams). For playoff games, the 2nd digit of the specific number gives the round of the playoffs, the 3rd digit specifies the matchup, and the 4th digit specifies the game (out of 7).
+---
+### <a name="tournaments">Tournaments
+`GET https://statsapi.web.nhl.com/api/v1/tournaments/playoffs`
+
+This is used for tracking nested tournaments, specifically the Playoffs due to the nature of their structure.
+
+```
+{
+  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2019. All Rights Reserved.",
+  "id" : 1,
+  "name" : "Playoffs",
+  "season" : "20182019",
+  "defaultRound" : 1,
+  "rounds" : [ {
+    "number" : 1,
+    "code" : 1,
+    "names" : {
+      "name" : "First Round",
+      "shortName" : "R1"
+    },
+    "format" : {
+      "name" : "BO7",
+      "description" : "Best of 7",
+      "numberOfGames" : 7,
+      "numberOfWins" : 4
+    }
+  }, {
+    "number" : 2,
+    "code" : 2,
+    "names" : {
+      "name" : "Second Round",
+      "shortName" : "R2"
+    },
+    "format" : {
+      "name" : "BO7",
+      "description" : "Best of 7",
+      "numberOfGames" : 7,
+      "numberOfWins" : 4
+    }
+  }, {
+    "number" : 3,
+    "code" : 3,
+    "names" : {
+      "name" : "Conference Finals",
+      "shortName" : "CF"
+    },
+    "format" : {
+      "name" : "BO7",
+      "description" : "Best of 7",
+      "numberOfGames" : 7,
+      "numberOfWins" : 4
+    }
+  }, {
+    "number" : 4,
+    "code" : 4,
+    "names" : {
+      "name" : "Stanley Cup Final",
+      "shortName" : "SCF"
+    },
+    "format" : {
+      "name" : "BO7",
+      "description" : "Best of 7",
+      "numberOfGames" : 7,
+      "numberOfWins" : 4
+    }
+  } ]
+}
+```
+
+In order to get additional information the expand modifer can be used such as this example
+
+`&expand=round.series,schedule.game.seriesSummary&season=20182019` This will add in details  like the game summary and the season
+
 
 ---
 ### <a name="schedule">Schedule
