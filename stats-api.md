@@ -17,6 +17,8 @@
 
 [Schedule](#schedule)
 
+[Seasons](#seasons)
+
 [Standings](#standings)
 
 [Standings Types](#standings-types)
@@ -878,7 +880,32 @@ In order to get additional information the expand modifer can be used such as th
   } ]
 }
 ```
+---
 
+### <a name="seasons">Seasons
+`GET https://statsapi.web.nhl.com/api/v1/seasons` Returns data on each season such as if ties were used, divisions, wildcards or the Olympics were participated in
+
+```
+{
+  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2019. All Rights Reserved.",
+  "seasons" : [ {
+    "seasonId" : "20172018",
+    "regularSeasonStartDate" : "2017-10-04",
+    "regularSeasonEndDate" : "2018-04-08",
+    "seasonEndDate" : "2018-06-07",
+    "numberOfGames" : 82,
+    "tiesInUse" : false,
+    "olympicsParticipation" : false,
+    "conferencesInUse" : true,
+    "divisionsInUse" : true,
+    "wildCardInUse" : true
+  } ]
+}
+```
+
+`GET https://statsapi.web.nhl.com/api/v1/seasons/20172018` Gets just the data for a specific season
+
+`GET https://statsapi.web.nhl.com/api/v1/seasons/current` Returns the current season,  very useful for code that depends upon this information
 ---
 ### <a name="standings">Standings
 
