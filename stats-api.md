@@ -597,7 +597,7 @@ This is used for tracking nested tournaments, specifically the Playoffs due to t
 
 In order to get additional information the expand modifer can be used such as this example
 
-`&expand=round.series,schedule.game.seriesSummary&season=20182019` This will add in details  like the game summary and the season
+`?expand=round.series,schedule.game.seriesSummary&season=20182019` This will add in details  like the game summary and the season
 
 
 ---
