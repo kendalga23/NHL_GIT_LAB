@@ -605,6 +605,10 @@ In order to get additional information the expand modifer can be used such as th
 
 `GET https://statsapi.web.nhl.com/api/v1/schedule` Returns a list of data about the schedule for a specified date range. If no date range is specified, returns results from the current day.
 
+#### Notes
+
+Without any flags or modifiers this endpoint will NOT return pre-season games that occur on the current day. In order for pre-season games to show up the date must be specified as show below in the Modifiers section
+
 #### Modifiers
 `?expand=schedule.broadcasts` Shows the broadcasts of the game
 
