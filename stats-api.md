@@ -13,6 +13,8 @@
 
 [Game-IDs](#game-ids)
 
+[Game Types](#game-types)
+
 [Tournaments](#tournaments)
 
 [Schedule](#schedule)
@@ -34,6 +36,8 @@
 [Awards](#awards)
 
 [Venues](#venues)
+
+[Event Types](#event-types)
 
 ---
 
@@ -526,6 +530,20 @@ since the given startTimecode. If the startTimecode param is missing, returns an
 
 #### <a name="game-ids">Game IDs
 The first 4 digits identify the season of the game (ie. 2017 for the 2017-2018 season). The next 2 digits give the type of game, where 01 = preseason, 02 = regular season, 03 = playoffs, 04 = all-star. The final 4 digits identify the specific game number. For regular season and preseason games, this ranges from 0001 to the number of games played. (1271 for seasons with 31 teams (2017 and onwards) and 1230 for seasons with 30 teams). For playoff games, the 2nd digit of the specific number gives the round of the playoffs, the 3rd digit specifies the matchup, and the 4th digit specifies the game (out of 7).
+
+
+#### <a name="game-types">Game Types
+
+`GET https://statsapi.web.nhl.com/api/v1/gameTypes`
+
+Returns list of game types with description and post-season status
+
+#### <a name="play-types">Play Types
+
+`GET https://statsapi.web.nhl.com/api/v1/playTypes`
+
+This shows all the possible play types found within the liveData/plays portion of the game feed
+
 ---
 ### <a name="tournaments">Tournaments
 `GET https://statsapi.web.nhl.com/api/v1/tournaments/playoffs`
@@ -1275,3 +1293,10 @@ Ex:
   } ]
 }
 ```
+
+### <a name="event-types">Event Types
+
+`GET https://statsapi.web.nhl.com/api/v1/eventTypes`
+
+Shows several event types beyond just hockey games, possibly an artifact left over from being reconfigured to be used by the NHL
+
