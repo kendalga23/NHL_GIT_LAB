@@ -75,6 +75,8 @@ for every franchise (ex roadTies, roadWins, etc)
 
 `/site/api/franchise-detail?cayenneExp=mostRecentTeamId=ID` Returns captainHistory, coachingHistory, generalManagerHistory and a summary of retired numbers
 
+`/site/api/franchise?include=teams.id&include=teams.active&include=teams.triCode&include=teams.placeName&include=teams.commonName&include=teams.fullName&include=teams.logos&include=teams.conference.name&include=teams.division.name&include=teams.franchiseTeam.firstSeason.id&include=teams.franchiseTeam.lastSeason.id&include=teams.franchiseTeam.teamCommonName` Returns every logo for every team and franchise.
+
 ### Player
 
 `/player/byTeam/teamId` Returns all players for the specified teamId
