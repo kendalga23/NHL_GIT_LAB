@@ -304,7 +304,318 @@ and does not include things like evenTimeOnIce and other time related stats*
     } ]
   } ]
 }
+
 ```
+
+`?stats=yearByYear` Provides a list of every season for a player's career
+```
+{
+  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2019. All Rights Reserved.",
+  "stats" : [ {
+    "type" : {
+      "displayName" : "yearByYear"
+    },
+    "splits" : [ {
+      "season" : "20012002",
+      "stat" : {
+        "timeOnIce" : "00:00",
+        "assists" : 8,
+        "goals" : 18,
+        "pim" : 20,
+        "games" : 19,
+        "powerPlayTimeOnIce" : "00:00",
+        "evenTimeOnIce" : "00:00",
+        "penaltyMinutes" : "20",
+        "faceOffPct" : 0.0,
+        "shortHandedTimeOnIce" : "00:00",
+        "points" : 26,
+        "shifts" : 0
+      },
+      "team" : {
+        "name" : "Dyn'o Moscow 2",
+        "link" : "/api/v1/teams/null"
+      },
+      "league" : {
+        "name" : "Russia-3",
+        "link" : "/api/v1/league/null"
+      },
+      "sequenceNumber" : 1
+    }, {
+      "season" : "20012002",
+      "stat" : {
+        "timeOnIce" : "00:00",
+        "assists" : 4,
+        "goals" : 14,
+        "pim" : 0,
+        "games" : 8,
+        "powerPlayTimeOnIce" : "00:00",
+        "evenTimeOnIce" : "00:00",
+        "penaltyMinutes" : "0",
+        "faceOffPct" : 0.0,
+        "shortHandedTimeOnIce" : "00:00",
+        "points" : 18,
+        "shifts" : 0
+      },
+      "team" : {
+        "id" : 64,
+        "name" : "Russia",
+        "link" : "/api/v1/teams/64"
+      },
+      "league" : {
+        "id" : 147,
+        "name" : "WJ18-A",
+        "link" : "/api/v1/league/147"
+      },
+      "sequenceNumber" : 3
+    }, 
+    
+    ...
+    
+    , {
+      "season" : "20042005",
+      "stat" : {
+        "timeOnIce" : "00:00",
+        "assists" : 3,
+        "goals" : 5,
+        "pim" : 4,
+        "games" : 8,
+        "powerPlayTimeOnIce" : "00:00",
+        "evenTimeOnIce" : "00:00",
+        "penaltyMinutes" : "4",
+        "faceOffPct" : 0.0,
+        "shortHandedTimeOnIce" : "00:00",
+        "points" : 8,
+        "shifts" : 0
+      },
+      "team" : {
+        "id" : 64,
+        "name" : "Russia",
+        "link" : "/api/v1/teams/64"
+      },
+      "league" : {
+        "id" : 147,
+        "name" : "WC-A",
+        "link" : "/api/v1/league/147"
+      },
+      "sequenceNumber" : 4
+    }, {
+      "season" : "20052006",
+      "stat" : {
+        "timeOnIce" : "1751:22",
+        "assists" : 54,
+        "goals" : 52,
+        "pim" : 52,
+        "shots" : 425,
+        "games" : 81,
+        "hits" : 172,
+        "powerPlayGoals" : 21,
+        "powerPlayPoints" : 52,
+        "powerPlayTimeOnIce" : "544:33",
+        "evenTimeOnIce" : "1140:57",
+        "penaltyMinutes" : "52",
+        "faceOffPct" : 12.5,
+        "shotPct" : 12.2,
+        "gameWinningGoals" : 5,
+        "overTimeGoals" : 2,
+        "shortHandedGoals" : 3,
+        "shortHandedPoints" : 3,
+        "shortHandedTimeOnIce" : "65:52",
+        "blocked" : 20,
+        "plusMinus" : 2,
+        "points" : 106,
+        "shifts" : 1959
+      },
+      "team" : {
+        "id" : 15,
+        "name" : "Washington Capitals",
+        "link" : "/api/v1/teams/15"
+      },
+      "league" : {
+        "id" : 133,
+        "name" : "National Hockey League",
+        "link" : "/api/v1/league/133"
+      },
+      "sequenceNumber" : 1
+    }, {
+      "season" : "20052006",
+      "stat" : {
+        "timeOnIce" : "00:00",
+        "assists" : 0,
+        "goals" : 5,
+        "pim" : 8,
+        "games" : 8,
+        "powerPlayTimeOnIce" : "00:00",
+        "evenTimeOnIce" : "00:00",
+        "penaltyMinutes" : "8",
+        "faceOffPct" : 0.0,
+        "shortHandedTimeOnIce" : "00:00",
+        "points" : 5,
+        "shifts" : 0
+      },
+      "team" : {
+        "id" : 64,
+        "name" : "Russia",
+        "link" : "/api/v1/teams/64"
+      },
+      "league" : {
+        "id" : 147,
+        "name" : "Olympics",
+        "link" : "/api/v1/league/147"
+      },
+      "sequenceNumber" : 3
+    }, {
+      "season" : "20052006",
+      "stat" : {
+        "timeOnIce" : "00:00",
+        "assists" : 3,
+        "goals" : 6,
+        "pim" : 6,
+        "games" : 7,
+        "powerPlayTimeOnIce" : "00:00",
+        "evenTimeOnIce" : "00:00",
+        "penaltyMinutes" : "6",
+        "faceOffPct" : 0.0,
+        "shortHandedTimeOnIce" : "00:00",
+        "points" : 9,
+        "shifts" : 0
+      },
+      "team" : {
+        "id" : 64,
+        "name" : "Russia",
+        "link" : "/api/v1/teams/64"
+      },
+      "league" : {
+        "id" : 147,
+        "name" : "WC-A",
+        "link" : "/api/v1/league/147"
+      },
+      "sequenceNumber" : 5
+    }, {
+      "season" : "20062007",
+      "stat" : {
+        "timeOnIce" : "1753:50",
+        "assists" : 46,
+        "goals" : 46,
+        "pim" : 52,
+        "shots" : 392,
+        "games" : 82,
+        "hits" : 184,
+        "powerPlayGoals" : 16,
+        "powerPlayPoints" : 37,
+        "powerPlayTimeOnIce" : "453:26",
+        "evenTimeOnIce" : "1284:04",
+        "penaltyMinutes" : "52",
+        "faceOffPct" : 47.06,
+        "shotPct" : 11.7,
+        "gameWinningGoals" : 8,
+        "overTimeGoals" : 1,
+        "shortHandedGoals" : 0,
+        "shortHandedPoints" : 0,
+        "shortHandedTimeOnIce" : "16:20",
+        "blocked" : 44,
+        "plusMinus" : -19,
+        "points" : 92,
+        "shifts" : 1985
+      },
+      "team" : {
+        "id" : 15,
+        "name" : "Washington Capitals",
+        "link" : "/api/v1/teams/15"
+      },
+      "league" : {
+        "id" : 133,
+        "name" : "National Hockey League",
+        "link" : "/api/v1/league/133"
+      },
+      "sequenceNumber" : 1
+    }, {
+      "season" : "20062007",
+      "stat" : {
+        "assists" : 2,
+        "goals" : 1,
+        "pim" : 29,
+        "games" : 8,
+        "penaltyMinutes" : "29",
+        "points" : 3
+      },
+      "team" : {
+        "id" : 64,
+        "name" : "Russia",
+        "link" : "/api/v1/teams/64"
+      },
+      "league" : {
+        "id" : 147,
+        "name" : "WC-A",
+        "link" : "/api/v1/league/147"
+      },
+      "sequenceNumber" : 3
+    }
+    
+    ...
+    
+    {
+      "season" : "20182019",
+      "stat" : {
+        "timeOnIce" : "1694:37",
+        "assists" : 38,
+        "goals" : 51,
+        "pim" : 40,
+        "shots" : 338,
+        "games" : 81,
+        "hits" : 223,
+        "powerPlayGoals" : 18,
+        "powerPlayPoints" : 28,
+        "powerPlayTimeOnIce" : "357:21",
+        "evenTimeOnIce" : "1336:39",
+        "penaltyMinutes" : "40",
+        "faceOffPct" : 20.0,
+        "shotPct" : 15.1,
+        "gameWinningGoals" : 5,
+        "overTimeGoals" : 0,
+        "shortHandedGoals" : 0,
+        "shortHandedPoints" : 0,
+        "shortHandedTimeOnIce" : "00:37",
+        "blocked" : 41,
+        "plusMinus" : 7,
+        "points" : 89,
+        "shifts" : 1682
+      },
+      "team" : {
+        "id" : 15,
+        "name" : "Washington Capitals",
+        "link" : "/api/v1/teams/15"
+      },
+      "league" : {
+        "id" : 133,
+        "name" : "National Hockey League",
+        "link" : "/api/v1/league/133"
+      },
+      "sequenceNumber" : 1
+    }, {
+      "season" : "20182019",
+      "stat" : {
+        "assists" : 1,
+        "goals" : 2,
+        "pim" : 2,
+        "games" : 10,
+        "penaltyMinutes" : "2",
+        "plusMinus" : 6,
+        "points" : 3
+      },
+      "team" : {
+        "name" : "Russia",
+        "link" : "/api/v1/teams/null"
+      },
+      "league" : {
+        "name" : "WC",
+        "link" : "/api/v1/league/null"
+      },
+      "sequenceNumber" : 16551
+    } ]
+  } ]
+}
+```
+
 `?stats=homeAndAway&season=20162017` Provides a split between home and away games.
 ```
 {
