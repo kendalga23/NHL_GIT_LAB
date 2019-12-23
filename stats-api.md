@@ -849,6 +849,12 @@ The first 4 digits identify the season of the game (ie. 2017 for the 2017-2018 s
 
 Returns list of game types with description and post-season status
 
+#### <a name="game-status">Game Status
+
+`GET https://statsapi.web.nhl.com/api/v1/gameStatus`
+
+Returns a list of game status values
+
 #### <a name="play-types">Play Types
 
 `GET https://statsapi.web.nhl.com/api/v1/playTypes`
