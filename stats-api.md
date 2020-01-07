@@ -224,6 +224,10 @@ specify the id value in order to return data.
 ```
 `GET https://statsapi.web.nhl.com/api/v1/people/ID/stats` Complex endpoint with
 lots of append options to change what kind of stats you wish to obtain
+
+`GET https://statsapi.web.nhl.com/api/v1/positions` Simple endpoint that 
+obtains an array of eligible positions in the NHL
+
 #### Modifiers
 `?stats=statsSingleSeason&season=19801981`  Obtains single season statistics
 for a player
