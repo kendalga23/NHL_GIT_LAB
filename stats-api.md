@@ -867,6 +867,11 @@ This shows all the possible play types found within the liveData/plays portion o
 
 ---
 ### <a name="tournaments">Tournaments
+
+`GET https://statsapi.web.nhl.com/api/v1/tournamentTypes`
+
+Gets the possible different tournament types.
+
 `GET https://statsapi.web.nhl.com/api/v1/tournaments/playoffs`
 
 This is used for tracking nested tournaments, specifically the Playoffs due to the nature of their structure.
