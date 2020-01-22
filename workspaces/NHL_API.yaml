@@ -1,0 +1,1395 @@
+_type: export
+__export_format: 4
+__export_date: 2020-01-22T03:20:45.770Z
+__export_source: insomnia.desktop.app:v7.0.6
+resources:
+  - _id: req_76c67b0c5ce740949c03b84e87f9d8a5
+    authentication: {}
+    body: {}
+    created: 1579661791786
+    description: Returns all season attendance records separated into playoffAttendance and
+      regularAttendance
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661791786
+    method: GET
+    modified: 1579661828057
+    name: Attendance
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ records  }}attendance"
+    _type: request
+  - _id: fld_32525557a6564e709ef376f9f031ab98
+    created: 1579661765936
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1579661765936
+    modified: 1579661765936
+    name: Records
+    parentId: wrk_da9f1e66138a4757bb0bc6167972c113
+    _type: request_group
+  - _id: wrk_da9f1e66138a4757bb0bc6167972c113
+    created: 1576897666841
+    description: >+
+      # NHL API Documentation
+
+      In light of the recent addition of records.nhl.com and the effort to document 
+
+      the API that it relies upon it became necessary to split up the files for sanity
+
+      sake.
+
+
+      This effort is purely to make it easier for stats nerds and the like to make
+
+      use of the wonderful trove of information the NHL provides to us but in a much
+
+      more digestible form.
+
+
+      [OpenAPI 3.0 specification file for the NHL API](https://github.com/erunion/sport-api-specifications/tree/master/nhl) thanks to @[erunion](https://github.com/erunion)
+
+
+
+      _This workspaces are compiled by [Carlo Montagnino](https://carlomontagnino.com), based on the work of [Drew Hynes](https://gitlab.com/dword4/nhlapi/)_
+
+    modified: 1579661717808
+    name: NHL API
+    parentId: null
+    _type: workspace
+  - _id: req_48a80af131114fad99f18317cfccd9bb
+    authentication: {}
+    body: {}
+    created: 1579661854933
+    description: >-
+      Returns ALOT of draft data, looks to be every pick ever. (over 5mb)
+
+
+      `?cayenneExp=draftYear=2017` This filters by a single year, much more manageable.
+
+
+      `?draftedByTeamId=ID` drilldown to a specific teams drafting (doesn't seem to work)
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485803.5
+    method: GET
+    modified: 1579662118887
+    name: Draft
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ records  }}draft?draftedByTeamId=ID"
+    _type: request
+  - _id: req_2b2dc0a241074ac4bb655b5cdfde82b4
+    authentication: {}
+    body: {}
+    created: 1579662367316
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485753.5
+    method: GET
+    modified: 1579663107240
+    name: Franchise
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url:   {{ records  }}franchise
+    _type: request
+  - _id: req_0da9f4de8a694fbf86aef2b7899d41d9
+    authentication: {}
+    body: {}
+    created: 1579662684216
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485728.5
+    method: GET
+    modified: 1579663113490
+    name: Franchise Detail
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url:   {{ records  }}franchise-detail?cayenneExp=mostRecentTeamId=3
+    _type: request
+  - _id: req_ad69e01f02844424831bcf4e943e2f5d
+    authentication: {}
+    body: {}
+    created: 1579662758198
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485703.5
+    method: GET
+    modified: 1579663110125
+    name: Franchise Modifier Example
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url:   {{
+      records  }}franchise?include=teams.id&include=teams.active&include=teams.triCode&include=teams.placeName&include=teams.commonName&include=teams.fullName&include=teams.logos&include=teams.conference.name&include=teams.division.name&include=teams.franchiseTeam.firstSeason.id&include=teams.franchiseTeam.lastSeason.id&include=teams.franchiseTeam.teamCommonName
+    _type: request
+  - _id: req_b5d3240ed2154c7e9f8bc807bce26d4c
+    authentication: {}
+    body: {}
+    created: 1579662460540
+    description: Total stats for every franchise (ex roadTies, roadWins, etc)
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485653.5
+    method: GET
+    modified: 1579663117450
+    name: Franchise Team Totals
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url:   {{ records  }}franchise-team-totals
+    _type: request
+  - _id: req_bf4a4ea58d044ad792b4720b3721c618
+    authentication: {}
+    body: {}
+    created: 1579662497427
+    description: Drill-down into season records for a specific franchise.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485603.5
+    method: GET
+    modified: 1579663120465
+    name: Franchise Season Records
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url:   {{ records  }}franchise-season-records?cayenneExp=franchiseId=10
+    _type: request
+  - _id: req_22be986cf9bf41a094b626cf171adc9d
+    authentication: {}
+    body: {}
+    created: 1579662564525
+    description: Returns every season result for a specified team, sorted by seasonId in
+      descending order
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485553.5
+    method: GET
+    modified: 1579663124852
+    name: Franchise Season Results
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url:   {{
+      records  }}franchise-season-results?cayenneExp=franchiseId=10&sort=seasonId&dir=DESC
+    _type: request
+  - _id: req_66d97c800beb494e970eb073ff57913d
+    authentication: {}
+    body: {}
+    created: 1579662602528
+    description: Goalie records for the specified franchise
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485503.5
+    method: GET
+    modified: 1579663127318
+    name: Franchise Goalie Results
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url:   {{ records  }}franchise-goalie-records?cayenneExp=franchiseId=10
+    _type: request
+  - _id: req_870169bc8f82474abe5e6e7f6f888e76
+    authentication: {}
+    body: {}
+    created: 1579662643000
+    description: Skater records, same interaction as goalie endpoint
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485453.5
+    method: GET
+    modified: 1579663129915
+    name: Franchise Skater Results
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url:   {{ records  }}franchise-skater-records?cayenneExp=franchiseId=10
+    _type: request
+  - _id: req_1d5145278ef9411f9b1284ecd1111179
+    authentication: {}
+    body: {}
+    created: 1579662209622
+    description: >
+      Returns franchise records against every other team in the league.
+
+
+      ## Modifiers
+
+
+      `?cayenneExp=gameTypeId=2` filters by gameTypeId (2 = regularSeason, 3 = playoffs)
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485403.5
+    method: GET
+    modified: 1579663133064
+    name: All Time Record  by Franchise
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ records  }}all-time-record-vs-franchise?cayenneExp=teamFranchiseId=10"
+    _type: request
+  - _id: req_ef2032324f5146b9a023fb4efda382a4
+    authentication: {}
+    body: {}
+    created: 1579662278166
+    description: >
+      Returns franchise records against every other team in the league.
+
+
+      ## Modifiers
+
+
+      `?cayenneExp=gameTypeId=2` filters by gameTypeId (2 = regularSeason, 3 = playoffs)
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485353.5
+    method: GET
+    modified: 1579663135962
+    name: All Time Playoff Record  by Franchise
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{
+      records  }}playoff-franchise-vs-franchise?cayenneExp=teamFranchiseId=10"
+    _type: request
+  - _id: req_a70035fa73d3432a8d94a5451a0da25a
+    authentication: {}
+    body: {}
+    created: 1579662136670
+    description: Looks to be all records along with the restUrl to fetch the data.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485303.5
+    method: GET
+    modified: 1579663154350
+    name: Record Detail
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ records  }}record-detail"
+    _type: request
+  - _id: req_c1d5be41702e4ebe8ca857542bb136b8
+    authentication: {}
+    body: {}
+    created: 1579662967198
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485278.5
+    method: GET
+    modified: 1579663169317
+    name: Trophies
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ records  }}trophy"
+    _type: request
+  - _id: req_fefe3bb2f10e43adae7e27cef38778c3
+    authentication: {}
+    body: {}
+    created: 1579662809926
+    description: Returns all players for the specified teamId
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485253.5
+    method: GET
+    modified: 1579663157638
+    name: Players by Team ID
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url:  {{ records  }}player/byTeam/3
+    _type: request
+  - _id: req_7ca26a2b11b84e3ca34cd43c5e7dac97
+    authentication: {}
+    body: {}
+    created: 1579662882909
+    description: >-
+      Returns gamedata for each game during the specified playoff round
+
+
+      posible values for seriesTitle include: 'Stanley Cup Final', 'Conference Finals', 'Conference Semifinals', 'Conference Quarterfinals'
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485203.5
+    method: GET
+    modified: 1579663165067
+    name: Playoff Game Data
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: '{{ records  }}playoff-series?cayenneExp=seriesTitle="Stanley Cup Final"
+      and seasonId=20182019'
+    _type: request
+  - _id: req_a95d2747e8234508a939f85da688616d
+    authentication: {}
+    body: {}
+    created: 1579663036567
+    description: >-
+      These endpoints show the players who meet the rather self-explanatory
+      criteria
+
+
+      `/milestone-1000-point-career`
+
+
+      `/milestone-500-goal-career`
+
+
+      `/milestone-100-point-season`
+
+
+      `/milestone-50-goal-season`
+
+
+      `/milestone-5-goal-game`
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485178.5
+    method: GET
+    modified: 1579663179617
+    name: Milestones
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ records  }}milestone-5-goal-game"
+    _type: request
+  - _id: req_d5f98bd236f648c3b62f37d420734d06
+    authentication: {}
+    body: {}
+    created: 1579662998997
+    description: |-
+      ## Modifiers
+
+      `cayenneExp=active=true` This only shows active officials
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579661485153.5
+    method: GET
+    modified: 1579663172753
+    name: Officials
+    parameters: []
+    parentId: fld_32525557a6564e709ef376f9f031ab98
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ records  }}officials"
+    _type: request
+  - _id: req_2abc51c7f02f41148a3d19c4b3b24b2b
+    authentication: {}
+    body: {}
+    created: 1579658154366
+    description: Returns conference details for all current NHL conferences.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579657694172
+    method: GET
+    modified: 1579661035123
+    name: Conferences
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}conferences"
+    _type: request
+  - _id: fld_bd5faf78f94f470695a8b5811544786c
+    created: 1579657662779
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1579657619286
+    modified: 1579661587575
+    name: Stats
+    parentId: wrk_da9f1e66138a4757bb0bc6167972c113
+    _type: request_group
+  - _id: req_4b637c857a724ca4890c8ad692b16083
+    authentication: {}
+    body: {}
+    created: 1579658178093
+    description: Same as above but for specific conference, also can look up id 7 for World
+      Cup of Hockey.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579657694122
+    method: GET
+    modified: 1579661040277
+    name: Conferences by ID
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}conferences/6"
+    _type: request
+  - _id: req_df8b9efc7ce04e378403d353203e0284
+    authentication: {}
+    body: {}
+    created: 1579657937367
+    description: Returns full list of divisions and associated data like which conference
+      they belong to, id values and API links. Does not show inactive divisions
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579657694072
+    method: GET
+    modified: 1579661044659
+    name: Divisions
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}divisions"
+    _type: request
+  - _id: req_467dbdb3539c46faa209cfdd1a59012f
+    authentication: {}
+    body: {}
+    created: 1579657955170
+    description: Same as above but only for a single division. This can show old inactive
+      divisions such as 13 Patrick.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579657694047
+    method: GET
+    modified: 1579661050541
+    name: Divisions by ID
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}divisions/18"
+    _type: request
+  - _id: req_e6ebc10c5657471898ee5545279bdfc4
+    authentication: {}
+    body: {}
+    created: 1579657693872
+    description: Returns a list of data about all teams including their id, venue details,
+      division, conference and franchise information.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579657693997
+    method: GET
+    modified: 1579661055958
+    name: Teams
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}teams"
+    _type: request
+  - _id: req_62ba09d304d64c14849afa7a8ec4f0ce
+    authentication: {}
+    body: {}
+    created: 1579657721924
+    description: >-
+      Returns the same information as above just for a single team instead of
+      the entire league.
+
+
+      ## Modifiers
+
+      `?expand=team.roster` Shows roster of active players for the specified team 
+
+
+      `?expand=person.names` Same as above, but gives less info.
+
+
+      `?expand=team.schedule.next` Returns details of the upcoming game for a team
+
+
+      `?expand=team.schedule.previous` Same as above but for the last game played
+
+
+      `?expand=team.stats` Returns the teams stats for the season
+
+
+      `?expand=team.roster&season=20142015` Adding the season identifier shows the roster for that season
+
+
+      `?teamId=4,5,29` Can string team id together to get multiple teams
+
+
+      `?stats=statsSingleSeasonPlayoffs` Specify which stats to get. Not fully sure all of the values
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579657693972
+    method: GET
+    modified: 1579660855819
+    name: Teams by ID
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1  }}teams/3"
+    _type: request
+  - _id: req_113f7c4f2de147c48292611e07a3314d
+    authentication: {}
+    body: {}
+    created: 1579657897388
+    description: Returns entire roster for a team including id value, name, jersey number
+      and position details.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579657693959.5
+    method: GET
+    modified: 1579660908493
+    name: Team Roster by ID
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1  }}/teams/3/roster"
+    _type: request
+  - _id: req_c3103cc4c2d841efb75e8edd486fa2f3
+    authentication: {}
+    body: {}
+    created: 1579658436632
+    description: Simple endpoint that obtains an array of eligible positions in the NHL
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579657693903.25
+    method: GET
+    modified: 1579660914863
+    name: Positions
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1  }}positions"
+    _type: request
+  - _id: req_2d3fae1424d948608ff353d2531891d8
+    authentication: {}
+    body: {}
+    created: 1579658237769
+    description: Gets details for a player, must specify the id value in order to return
+      data.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579657693875.125
+    method: GET
+    modified: 1579660919180
+    name: People
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1  }}people/8477950"
+    _type: request
+  - _id: req_1a90f6caca7c46379f9de8bb574262b2
+    authentication: {}
+    body: {}
+    created: 1579658401477
+    description: >+
+      Complex endpoint with lots of append options to change what kind of stats
+      you wish to obtain
+
+
+      ## Modifiers
+
+      `?stats=statsSingleSeason&season=19801981`  Obtains single season statistics
+
+      for a player
+
+
+      `?stats=yearByYear` Provides a list of every season for a player's career
+
+
+      `?stats=homeAndAway&season=20162017` Provides a split between home and away games.
+
+
+      `?stats=winLoss&season=20162017` Very similar to the previous modifier except it provides the W/L/OT split instead of Home and Away
+
+
+      `?stats=byMonth&season=20162017` Monthly split of stats
+
+
+      `?stats=byDayOfWeek&season=20162017` Split done by day of the week
+
+
+      `?stats=vsDivision&season=20162017` Division stats split
+
+
+      `?stats=vsConference&season=20162017` Conference stats split
+
+
+      `?stats=vsTeam&season=20162017` Conference stats split
+
+
+      `?stats=gameLog&season=20162017` Provides a game log showing stats for each game of a season
+
+
+      `?stats=regularSeasonStatRankings&season=20162017` Returns where someone stands vs
+
+      the rest of the league for a specific regularSeasonStatRankings
+
+
+      `?stats=goalsByGameSituation&season=20162017` Shows number on when goals for a
+
+      player happened like how many in the shootout, how many in each period, etc.
+
+
+      `?stats=onPaceRegularSeason&season=20172018` This only works with the current
+
+      in-progress season and shows **projected** totals based on current onPaceRegularSeason
+
+
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579657693861.0625
+    method: GET
+    modified: 1579660923036
+    name: People Stats
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{
+      stats_v1  }}people/8477950/stats/?stats=statsSingleSeason&season=20192020"
+    _type: request
+  - _id: req_470e6069722040049b51819ab70b7010
+    authentication: {}
+    body: {}
+    created: 1579658803739
+    description: The first 4 digits identify the season of the game (ie. 2017 for the
+      2017-2018 season). The next 2 digits give the type of game, where 01 =
+      preseason, 02 = regular season, 03 = playoffs, 04 = all-star. The final 4
+      digits identify the specific game number. For regular season and preseason
+      games, this ranges from 0001 to the number of games played. (1271 for
+      seasons with 31 teams (2017 and onwards) and 1230 for seasons with 30
+      teams). For playoff games, the 2nd digit of the specific number gives the
+      round of the playoffs, the 3rd digit specifies the matchup, and the 4th
+      digit specifies the game (out of 7).
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579312715448.7812
+    method: GET
+    modified: 1579660950649
+    name: Season/Game Notes
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: ""
+    _type: request
+  - _id: req_d327b70667874e298fee9fcc43ea4cf4
+    authentication: {}
+    body: {}
+    created: 1579658639834
+    description: Returns list of game types with description and post-season status
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579140226242.6406
+    method: GET
+    modified: 1579660966041
+    name: Game Types
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1  }}gameTypes"
+    _type: request
+  - _id: req_29245cd1c15f45639032826f17d8182a
+    authentication: {}
+    body: {}
+    created: 1579658982082
+    description: Gets the possible different tournament types.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579053981639.5703
+    method: GET
+    modified: 1579660970140
+    name: Tournament Types
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1  }}tournamentTypes"
+    _type: request
+  - _id: req_e9ce8fb0c44f4eba95822ce57605db67
+    authentication: {}
+    body: {}
+    created: 1579659056965
+    description: >
+      This is used for tracking nested tournaments, specifically the Playoffs
+      due to the nature of their structure.
+
+
+      In order to get additional information the expand modifer can be used such as this example
+
+
+      `?expand=round.series,schedule.game.seriesSummary&season=20182019` This will add in details like the game summary and the season
+    headers: []
+    isPrivate: false
+    metaSortKey: -1579010859338.0352
+    method: GET
+    modified: 1579660826705
+    name: Playoffs (Tournament Type)
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{
+      stats_v1  }}tournaments/playoffs?expand=round.series,schedule.game.series\
+      Summary&season=20182019"
+    _type: request
+  - _id: req_53eda6dc119b4af4a6e45ae63c204c95
+    authentication: {}
+    body: {}
+    created: 1579658913619
+    description: This shows all the possible play types found within the liveData/plays
+      portion of the game feed
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578994688474.9595
+    method: GET
+    modified: 1579660978057
+    name: Play Types
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1  }}playTypes"
+    _type: request
+  - _id: req_bfe052e040d84ff28ca02862c77912ed
+    authentication: {}
+    body: {}
+    created: 1579658864487
+    description: Returns a list of game status values
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578989298187.2676
+    method: GET
+    modified: 1579660981704
+    name: Game Status
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1  }}gameStatus"
+    _type: request
+  - _id: req_d2538ab829a4438484e5680b7bfabab8
+    authentication: {}
+    body: {}
+    created: 1579659247548
+    description: >-
+      Returns a list of data about the schedule for a specified date range. If
+      no date range is specified, returns results from the current day.
+
+
+      ## Notes
+
+
+      Without any flags or modifiers this endpoint will NOT return pre-season games that occur on the current day. In order for pre-season games to show up the date must be specified as show below in the Modifiers section
+
+
+      ## Modifiers
+
+
+      `?expand=schedule.broadcasts` Shows the broadcasts of the game
+
+
+      `?expand=schedule.linescore` Linescore for completed games
+
+
+      `?expand=schedule.ticket` Provides the different places to buy tickets for the upcoming games
+
+
+      `?teamId=30,17` Limit results to a specific team(s). Team ids can be found through the teams endpoint
+
+
+      `?date=2018-01-09` Single defined date for the search
+
+
+      `?startDate=2018-01-09` Start date for the search
+
+
+      `?endDate=2018-01-12` End date for the search
+
+
+      `?season=20192020` Returns all games from specified season
+
+
+      `?gameType=R` Restricts results to only regular season games. Can be set to any value from Game Types endpoint
+
+
+      `GET https://statsapi.web.nhl.com/api/v1/schedule?teamId=3` Returns NY Rangers games for the current day.
+
+
+      `GET https://statsapi.web.nhl.com/api/v1/schedule?teamId=3&startDate=2020-01-21&endDate=2020-01-21` Returns NY Rangers games for January 21, 2020 with attached linescores and broadcasts.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578978517611.8838
+    method: GET
+    modified: 1579660985944
+    name: Schedule
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1  }}schedule?teamId=3"
+    _type: request
+  - _id: req_260261fac01545a2ba9f87f69361585a
+    authentication: {}
+    body: {}
+    created: 1579659622711
+    description: Returns data on each season such as if ties were used, divisions,
+      wildcards or the Olympics were participated in
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578973127299.192
+    method: GET
+    modified: 1579660989662
+    name: Seasons
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1  }}seasons"
+    _type: request
+  - _id: req_9cd4d14df0264011bfd2413f5a63e7cf
+    authentication: {}
+    body: {}
+    created: 1579659664707
+    description: Gets just the data for a specific season
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578970432142.846
+    method: GET
+    modified: 1579660993789
+    name: Season by Years
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1  }}seasons/20192020"
+    _type: request
+  - _id: req_cd544da2f22f44a9b1db09804321721d
+    authentication: {}
+    body: {}
+    created: 1579659686646
+    description: Gets just the data for a specific season
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578969084564.6729
+    method: GET
+    modified: 1579660999365
+    name: Current Season
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1  }}seasons/current"
+    _type: request
+  - _id: req_c9b0a06cb7194d359d00080176a262f2
+    authentication: {}
+    body: {}
+    created: 1579659720277
+    description: >
+      Returns ordered standings data for each team broken up by divisions.
+
+
+      ## Modifiers
+
+
+      `?season=20032004` Standings for a specified season
+
+
+      `?date=2018-01-09` Standings on a specified date
+
+
+      `?expand=standings.record` Detailed information for each team including home and away records, record in shootouts, last ten games, and split head-to-head records against divisions and conferences
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578968410775.5864
+    method: GET
+    modified: 1579661003892
+    name: Standings
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1  }}standings"
+    _type: request
+  - _id: req_6f18f3121a594ea292b8dab142996fba
+    authentication: {}
+    body: {}
+    created: 1579659789713
+    description: >-
+      Returns all the standings types to be used in order do get a specific
+      standings.
+
+
+
+      _Ex: https://statsapi.web.nhl.com/api/v1/standings/wildCardWithLeaders?date=2018-01-16_ Returns the complete wildcard (with leaders) standings on 01/16/2018.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578968073881.0432
+    method: GET
+    modified: 1579661007844
+    name: Standings Types
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1  }}standingsTypes"
+    _type: request
+  - _id: req_666d6bba42fb4de487ecd7544a169b6a
+    authentication: {}
+    body: {}
+    created: 1579659915087
+    description: Returns all the stats types to be used in order do get a specific kind of
+      player stats
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578968073831.0432
+    method: GET
+    modified: 1579661028706
+    name: Stats Types
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}statTypes"
+    _type: request
+  - _id: req_f77fad7e6cab46e4b7118c6551254973
+    authentication: {}
+    body: {}
+    created: 1579660027950
+    description: Returns current season stats and the current season rankings for a
+      specific team
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578968073781.0432
+    method: GET
+    modified: 1579660057814
+    name: Team Stats
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}teams/3/stats"
+    _type: request
+  - _id: req_40362810e68c4c5cb026b46a76f1aefb
+    authentication: {}
+    body: {}
+    created: 1579660086112
+    description: Get round-by-round data for current year's NHL Entry Draft.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578968073731.0432
+    method: GET
+    modified: 1579660570099
+    name: Draft
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}draft"
+    _type: request
+  - _id: req_ce4cd9f1be934874ae69cf1c8c2fe1fa
+    authentication: {}
+    body: {}
+    created: 1579660113015
+    description: Takes a YYYY format year and returns draft data
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578968073681.0432
+    method: GET
+    modified: 1579660571346
+    name: Draft by Year
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}draft/2019"
+    _type: request
+  - _id: req_549f43ebe7fe49089a404c093e2be918
+    authentication: {}
+    body: {}
+    created: 1579660159231
+    description: Get all NHL Entry Draft prospects. (Over 5mb)
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578968073631.0432
+    method: GET
+    modified: 1579660575176
+    name: Prospects
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}draft/prospects"
+    _type: request
+  - _id: req_fcc625b8d8e54f9694cf329328617255
+    authentication: {}
+    body: {}
+    created: 1579660215166
+    description: Get an NHL Entry Draft prospect.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578968073581.0432
+    method: GET
+    modified: 1579660576629
+    name: Prospects by Player
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}draft/prospects/53478"
+    _type: request
+  - _id: req_197b37fb2f4844e48c523bb14287d044
+    authentication: {}
+    body: {}
+    created: 1579660259927
+    description: Get all NHL Awards.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578968073531.0432
+    method: GET
+    modified: 1579660578066
+    name: Awards
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}awards"
+    _type: request
+  - _id: req_025155714a994648802f0d341972052b
+    authentication: {}
+    body: {}
+    created: 1579660323741
+    description: Get an NHL Award.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578968073481.0432
+    method: GET
+    modified: 1579660621137
+    name: Award by ID
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}awards/1"
+    _type: request
+  - _id: req_775ff85b3b8f46189df9cb46a2cdd07f
+    authentication: {}
+    body: {}
+    created: 1579660380010
+    description: Get all NHL Venues in API database.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578968073431.0432
+    method: GET
+    modified: 1579660581466
+    name: Venues
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}venues"
+    _type: request
+  - _id: req_fef56215683f47ebabc84963a01f4eac
+    authentication: {}
+    body: {}
+    created: 1579660439774
+    description: Get an NHL Venue.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578968073381.0432
+    method: GET
+    modified: 1579660582886
+    name: Venue by ID
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}venues/5064"
+    _type: request
+  - _id: req_bb3d7f1dca1b4f888e9796078e618fd8
+    authentication: {}
+    body: {}
+    created: 1579660504598
+    description: Shows several event types beyond just hockey games, possibly an artifact
+      left over from being reconfigured to be used by the NHL.
+    headers: []
+    isPrivate: false
+    metaSortKey: -1578968073331.0432
+    method: GET
+    modified: 1579660586058
+    name: Event Types
+    parameters: []
+    parentId: fld_bd5faf78f94f470695a8b5811544786c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ stats_v1 }}eventTypes"
+    _type: request
+  - _id: env_fd4534f9a0ea4ac7ac2220af5caa7b94
+    color: null
+    created: 1576897666976
+    data: {}
+    dataPropertyOrder: null
+    isPrivate: false
+    metaSortKey: 1576897666976
+    modified: 1576897666976
+    name: New Environment
+    parentId: wrk_da9f1e66138a4757bb0bc6167972c113
+    _type: environment
+  - _id: jar_9ec3c698f4814c68b9f62744c541cc6e
+    cookies:
+      - creation: 2020-01-22T02:56:45.882Z
+        domain: records.nhl.com
+        expires: 2020-01-23T03:17:55.000Z
+        hostOnly: true
+        httpOnly: true
+        id: "9714097049059272"
+        key: NSC_hsc-sfdpset-tjuf-9102-mc
+        lastAccessed: 2020-01-22T03:17:55.594Z
+        path: /
+        secure: true
+        value: ffffffff0943385f45525d5f4f58455e445a4a4215be
+    created: 1576897666982
+    modified: 1579663075594
+    name: Default Jar
+    parentId: wrk_da9f1e66138a4757bb0bc6167972c113
+    _type: cookie_jar
+  - _id: env_2ccc079a02524b5fb1119dc8f49721a2
+    color: null
+    created: 1579657759923
+    data:
+      records: https://records.nhl.com/site/api/
+      stats_v1: https://statsapi.web.nhl.com/api/v1/
+    dataPropertyOrder:
+      "&":
+        - stats_v1
+        - records
+    isPrivate: false
+    metaSortKey: 1579657759923
+    modified: 1579661817584
+    name: NHL API
+    parentId: env_fd4534f9a0ea4ac7ac2220af5caa7b94
+    _type: environment
