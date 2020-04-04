@@ -1299,8 +1299,6 @@ for each team broken up by divisions
 #### Modifiers
 `?season=20032004` Standings for a specified season
 
-`?date=2018-01-09` Standings on a specified date
-
 `?expand=standings.record` Detailed information for each team including home and away records, record in shootouts, last ten games, and split head-to-head records against divisions and conferences
 
 ```
