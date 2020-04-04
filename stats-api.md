@@ -1258,7 +1258,9 @@ Without any flags or modifiers this endpoint will NOT return pre-season games th
 `GET https://statsapi.web.nhl.com/api/v1/seasons/20172018` Gets just the data for a specific season
 
 `GET https://statsapi.web.nhl.com/api/v1/seasons/current` Returns the current season,  very useful for code that depends upon this information
+
 ---
+
 ### <a name="standings">Standings
 
 `GET https://statsapi.web.nhl.com/api/v1/standings` Returns ordered standings data
