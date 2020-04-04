@@ -1258,7 +1258,9 @@ Without any flags or modifiers this endpoint will NOT return pre-season games th
 `GET https://statsapi.web.nhl.com/api/v1/seasons/20172018` Gets just the data for a specific season
 
 `GET https://statsapi.web.nhl.com/api/v1/seasons/current` Returns the current season,  very useful for code that depends upon this information
+
 ---
+
 ### <a name="standings">Standings
 
 `GET https://statsapi.web.nhl.com/api/v1/standings` Returns ordered standings data
@@ -1296,8 +1298,6 @@ for each team broken up by divisions
 
 #### Modifiers
 `?season=20032004` Standings for a specified season
-
-`?date=2018-01-09` Standings on a specified date
 
 `?expand=standings.record` Detailed information for each team including home and away records, record in shootouts, last ten games, and split head-to-head records against divisions and conferences
 
