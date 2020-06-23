@@ -1397,9 +1397,7 @@ to be used in order do get a specific standings
   "description" : "Standings by League"
 } ]
 ```
-Ex: https://statsapi.web.nhl.com/api/v1/standings/wildCardWithLeaders?date=2018-01-16
 
-Returns the complete wildcard (with leaders) standings on 01/16/2018.
 
 ---
 
