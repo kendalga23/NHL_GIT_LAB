@@ -3,6 +3,8 @@
 
 [OpenAPI 3.0 specification file for the NHL API](https://github.com/erunion/sport-api-specifications/tree/master/nhl) thanks to @[erunion](https://github.com/erunion)
 
+[Franchises](#franchises)
+
 [Teams](#teams)
 
 [Divisions](#divisions)
@@ -40,7 +42,13 @@
 [Event Types](#event-types)
 
 ---
+### <a name="franchises"></a>Franchises
 
+`GET https://statsapi.web.nhl.com/api/v1/franchises` Returns a list of franchises
+
+`GET https://statsapi.web.nhl.com/api/v1/franchises/ID` Gets information on a specific franchise
+
+---
 ### <a name="teams"></a>Teams
 
 `GET https://statsapi.web.nhl.com/api/v1/teams` Returns a list of data about
