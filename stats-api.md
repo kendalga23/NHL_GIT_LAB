@@ -5,6 +5,12 @@
 
 [Configurations](#configurations)
 
+[Expands](#expands)
+
+[Languages](#languages)
+
+[Platforms](#platforms)
+
 [Franchises](#franchises)
 
 [Teams](#teams)
@@ -42,10 +48,32 @@
 [Venues](#venues)
 
 [Event Types](#event-types)
+
+[Performer Types](#performer-types)
+
 ---
+
 ### <a name="configurations"></a>Configurations
 
 `GET https://statsapi.web.nhl.com/api/v1/configurations` Returns a huge list of other endpoints, sort of the rosetta stone discovery tying many parts of the API together
+
+---
+### <a name="expands"></a>Expands
+
+`GET https://statsapi.web.nhl.com/api/v1/expands` Shows all possible input for the expand field
+
+---
+### <a name="languages"></a>Languages
+
+`GET https://statsapi.web.nhl.com/api/v1/languages`
+Shows all possible languages for the API
+
+---
+### <a name="platforms"></a>Platforms
+
+`GET https://statsapi.web.nhl.com/api/v1/platforms`
+
+This seems to allow the API to be tailored to a specific platform, indicating platform specific behavior/apps.
 
 ---
 ### <a name="franchises"></a>Franchises
@@ -857,30 +885,30 @@ multiple types of media relating to the game including videos of shots, goals an
 Returns updates (like new play events, updated stats for boxscore, etc.) for the specified game ID
 since the given startTimecode. If the startTimecode param is missing, returns an empty array.
 
-#### <a name="game-ids">Game IDs
+#### <a name="game-ids"></a>Game IDs
 The first 4 digits identify the season of the game (ie. 2017 for the 2017-2018 season). The next 2 digits give the type of game, where 01 = preseason, 02 = regular season, 03 = playoffs, 04 = all-star. The final 4 digits identify the specific game number. For regular season and preseason games, this ranges from 0001 to the number of games played. (1271 for seasons with 31 teams (2017 and onwards) and 1230 for seasons with 30 teams). For playoff games, the 2nd digit of the specific number gives the round of the playoffs, the 3rd digit specifies the matchup, and the 4th digit specifies the game (out of 7).
 
 
-#### <a name="game-types">Game Types
+#### <a name="game-types"></a>Game Types
 
 `GET https://statsapi.web.nhl.com/api/v1/gameTypes`
 
 Returns list of game types with description and post-season status
 
-#### <a name="game-status">Game Status
+#### <a name="game-status"></a>Game Status
 
 `GET https://statsapi.web.nhl.com/api/v1/gameStatus`
 
 Returns a list of game status values
 
-#### <a name="play-types">Play Types
+#### <a name="play-types"></a>Play Types
 
 `GET https://statsapi.web.nhl.com/api/v1/playTypes`
 
 This shows all the possible play types found within the liveData/plays portion of the game feed
 
 ---
-### <a name="tournaments">Tournaments
+### <a name="tournaments"></a>Tournaments
 
 `GET https://statsapi.web.nhl.com/api/v1/tournamentTypes`
 
@@ -959,7 +987,7 @@ In order to get additional information the expand modifer can be used such as th
 
 
 ---
-### <a name="schedule">Schedule
+### <a name="schedule"></a>Schedule
 
 `GET https://statsapi.web.nhl.com/api/v1/schedule` Returns a list of data about the schedule for a specified date range. If no date range is specified, returns results from the current day.
 
@@ -1248,7 +1276,7 @@ Without any flags or modifiers this endpoint will NOT return pre-season games th
 ```
 ---
 
-### <a name="seasons">Seasons
+### <a name="seasons"></a>Seasons
 `GET https://statsapi.web.nhl.com/api/v1/seasons` Returns data on each season such as if ties were used, divisions, wildcards or the Olympics were participated in
 
 ```
@@ -1275,7 +1303,7 @@ Without any flags or modifiers this endpoint will NOT return pre-season games th
 
 ---
 
-### <a name="standings">Standings
+### <a name="standings"></a>Standings
 
 `GET https://statsapi.web.nhl.com/api/v1/standings` Returns ordered standings data
 for each team broken up by divisions
@@ -1375,7 +1403,7 @@ for each team broken up by divisions
 ```
 ---
 
-### <a name="standings-types">Standings Types
+### <a name="standings-types"></a>Standings Types
 
 `GET https://statsapi.web.nhl.com/api/v1/standingsTypes` Returns all the standings types
 to be used in order do get a specific standings
@@ -1415,14 +1443,14 @@ to be used in order do get a specific standings
 
 ---
 
-### <a name="stats-types">Stats Types
+### <a name="stats-types"></a>Stats Types
 
 `GET https://statsapi.web.nhl.com/api/v1/statTypes` Returns all the stats types
 to be used in order do get a specific kind of player stats
 
 ---
 
-### <a name="team-stats">Team Stats
+### <a name="team-stats"></a>Team Stats
 
 `GET https://statsapi.web.nhl.com/api/v1/teams/5/stats` Returns current season stats and the current season rankings for a specific team
 
@@ -1519,7 +1547,7 @@ Ex:
 
 ---
 
-### <a name="draft">Draft
+### <a name="draft"></a>Draft
 
 `GET https://statsapi.web.nhl.com/api/v1/draft` Get round-by-round data for current year's NHL Entry Draft.
 
@@ -1551,7 +1579,7 @@ Ex:
       },
 ```
 
-### <a name="prospects">Prospects
+### <a name="prospects"></a>Prospects
 
 `GET https://statsapi.web.nhl.com/api/v1/draft/prospects` Get all NHL Entry Draft prospects.
 
@@ -1596,7 +1624,7 @@ Ex:
 }
 ```
 
-### <a name="awards">Awards
+### <a name="awards"></a>Awards
 
 `GET https://statsapi.web.nhl.com/api/v1/awards` Get all NHL Awards.
 
@@ -1618,7 +1646,7 @@ Ex:
 }
 ```
 
-### <a name="venues">Venues
+### <a name="venues"></a>Venues
 
 `GET https://statsapi.web.nhl.com/api/v1/venues` Get all NHL Venues in API database.
 
@@ -1635,10 +1663,14 @@ Ex:
   } ]
 }
 ```
+---
 
-### <a name="event-types">Event Types
+### <a name="event-types"></a>Event Types
 
 `GET https://statsapi.web.nhl.com/api/v1/eventTypes`
 
 Shows several event types beyond just hockey games, possibly an artifact left over from being reconfigured to be used by the NHL
 
+### <a name="performer-types"></a>Performer Types
+
+`GET https://statsapi.web.nhl.com/api/v1/performerTypes` List of performer types likely tied to venue scheduling information
