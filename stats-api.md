@@ -3,6 +3,8 @@
 
 [OpenAPI 3.0 specification file for the NHL API](https://github.com/erunion/sport-api-specifications/tree/master/nhl) thanks to @[erunion](https://github.com/erunion)
 
+[Configurations](#configurations)
+
 [Franchises](#franchises)
 
 [Teams](#teams)
@@ -40,6 +42,10 @@
 [Venues](#venues)
 
 [Event Types](#event-types)
+---
+### <a name="configurations"></a>Configurations
+
+`GET https://statsapi.web.nhl.com/api/v1/configurations` Returns a huge list of other endpoints, sort of the rosetta stone discovery tying many parts of the API together
 
 ---
 ### <a name="franchises"></a>Franchises
