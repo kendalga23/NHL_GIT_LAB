@@ -13,6 +13,17 @@ Eventually build documentation on features such as cayenneExp which allows for
 retrieval of very complex documentation and perhaps even a more thorough set of 
 documentation including examples in multiple common langages (such as using Swagger)
 
+
+## Files
+
+| file | description |
+| --- | --- |
+|[made-with.md](made-with.md)|Collection of things made using the NHL API documentation, by no means exhaustive and zero affiliation with these projects.|
+|[misc.md](misc.md)|Random things the NHL API uses or is somehow related to|
+|[records-api.md](records-api.md)|Documentation on the API for records.nhl.com|
+|[stats-api.md](stats-api.md)|The one, the only NHL API (stats) documentation!|
+
+
 ## Contributing
 
 I am only one person so if you see something I have missed please feel free to 
