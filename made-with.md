@@ -3,6 +3,11 @@
 This document exists to collect things that people make using this documentation.  There is zero affiliation with those projects other than I like to show appreciation back to those who appricate the work here and find it useful.
 
 ---
+## Breakaway (iOS)
+
+Description: mobile app for hockey scores, stats and standings
+
+Twitter: https://twitter.com/breakaway_app?s=21
 
 ## nhl-api-explorer
 
