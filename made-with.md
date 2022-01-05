@@ -26,3 +26,11 @@ Description: web app showing hockey information in a mobile friendly format
 Code: https://gitlab.com/dword4/hockey-info
 
 Author: [Me](https://gitlab.com/dword4)
+
+## Analytics Report Generator
+
+Description: Automated analytics report generator built with FPDF
+
+Code: https://github.com/brendanartley/Analytics-Report-Generator
+
+Author: [brendanartley](https://github.com/brendanartley)
