@@ -1,8 +1,9 @@
 # Made With the NHL API Documentation
 
-This document exists to collect things that people make using this documentation.  There is zero affiliation with those projects other than I like to show appreciation back to those who appricate the work here and find it useful.
+This document exists to collect things that people make using this documentation. There is zero affiliation with those projects other than I like to show appreciation back to those who appricate the work here and find it useful.
 
 ---
+
 ## Breakaway (iOS)
 
 Description: mobile app for hockey scores, stats and standings
@@ -34,3 +35,11 @@ Description: Automated analytics report generator built with FPDF
 Code: https://github.com/brendanartley/Analytics-Report-Generator
 
 Author: [brendanartley](https://github.com/brendanartley)
+
+## Open-Hockey-API
+
+Description: A (WIP) GraphQL server wrapping the documented endpoints of this project into a single endpoint. Utilizes GQL to group data returned via these endpoints for common use cases into a single/few request(s).
+
+Code: https://github.com/Rblock919/open-hockey-api
+
+Author: [rblock919](https://github.com/Rblock919)
