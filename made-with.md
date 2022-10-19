@@ -28,6 +28,14 @@ Code: https://gitlab.com/dword4/hockey-info
 
 Author: [Me](https://gitlab.com/dword4)
 
+## NHL Goal Classification using Social Media
+
+Description: This project uses social media data from Reddit and Twitter to detect goals during NHL games. Goals events were classified using a sliding window and lexicon-based classification method.
+
+Code: https://github.com/brendanartley/NHL-Event-Detection
+
+Author: [brendanartley](https://github.com/brendanartley)
+
 ## Analytics Report Generator
 
 Description: Automated analytics report generator built with FPDF
