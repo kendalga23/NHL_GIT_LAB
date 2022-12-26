@@ -1,0 +1,10 @@
+image: node:latest
+
+pages:
+  stage: deploy
+  script:
+  - npm install -g redoc-cli
+  - redoc-cli bundle public/index.html swagger/openapi.yaml
+  artifacts:
+    paths:
+    - public
