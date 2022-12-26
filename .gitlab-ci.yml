@@ -5,6 +5,7 @@ pages:
   script:
   - npm install -g redoc-cli
   - redoc-cli build swagger/openapi.yaml 
+  - cp redoc-static.html public/index.html
   artifacts:
     paths:
     - public
