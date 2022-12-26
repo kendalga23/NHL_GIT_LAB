@@ -4,7 +4,7 @@ pages:
   stage: deploy
   script:
   - npm install -g redoc-cli
-  - redoc-cli build swagger/openapi.yaml public/index.html
+  - redoc-cli build swagger/openapi.yaml 
   artifacts:
     paths:
     - public
