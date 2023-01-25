@@ -8,4 +8,10 @@ pages:
   - cp redoc-static.html public/index.html
   artifacts:
     paths:
-    - public
+    - public/
+  pages:
+    cache:
+      paths:
+      - public/
+    script:
+      - echo "Deploying to GitLab Pages"
