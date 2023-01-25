@@ -7,4 +7,11 @@ pages:
   - redoc-cli build public/index.html swagger/openapi.yaml
   artifacts:
     paths:
-    - public
+    - public/
+  pages:
+    cache:
+      paths:
+      - public/
+    script:
+      - echo "Deploying to Gitlab Pages"
+
