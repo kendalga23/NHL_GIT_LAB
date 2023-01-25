@@ -9,3 +9,5 @@ pages:
   artifacts:
     paths:
     - public/
+  environment:
+    name: pages
