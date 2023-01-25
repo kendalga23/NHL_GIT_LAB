@@ -9,9 +9,3 @@ pages:
   artifacts:
     paths:
     - public/
-  pages:
-    cache:
-      paths:
-      - public/
-    script:
-      - echo "Deploying to GitLab Pages"
