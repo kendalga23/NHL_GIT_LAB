@@ -4,6 +4,16 @@ This document exists to collect things that people make using this documentation
 
 ---
 
+## Hockey Predictions
+
+Description: Simple website for predicting winner of hockey games using Google Oauth and Ruby on Rails (open to contributions!)
+
+Live: [http://predict-the-game.herokuapp.com](http://predict-the-game.herokuapp.com)
+
+Code: [Github organization](https://github.com/michaeldavidmarchand)
+
+Author: [Michael Marchand]( https://github.com/marchandmd )
+
 ## Breakaway (iOS)
 
 Description: mobile app for hockey scores, stats and standings
