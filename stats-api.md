@@ -4,7 +4,7 @@
 
 Thanks to [erunion](https://github.com/erunion)
 
-Base:
+Base:  
 `https://statsapi.web.nhl.com`
 
 # Endpoint Tables
