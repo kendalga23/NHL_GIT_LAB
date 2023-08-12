@@ -29,7 +29,7 @@ Base: `https://statsapi.web.nhl.com`
 | ------------------------------------- | --------------------------------------------------------------------- |
 | [Draft](#draft)                       | Get most recent draft; get past draft (by year)whatever               |
 | [Players](#players)                   | Player-specific (see [player stat modifiers](#player-stat-modifiers)) |
-| [Prospects](#prospects)               | Not in the league yet                                                 |
+| [Prospects](#prospects)               | Players not in the league yet                                         |
 
 | [SCHEDULE ENDPOINTS](#schedule-endpoints) |                                                    |
 | ----------------------------------------- | -------------------------------------------------- |
