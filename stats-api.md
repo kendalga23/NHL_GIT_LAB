@@ -4,7 +4,7 @@
 
 Thanks to [erunion](https://github.com/erunion)
 
-Base:  
+Base:
 `https://statsapi.web.nhl.com`
 
 # Endpoint Tables
@@ -67,6 +67,9 @@ Base:
 
 `GET https://statsapi.web.nhl.com/api/v1/awards/ID` Get an NHL Award.
 
+<details>
+  <summary>click for example</summary>
+
 ```json
 {
   "copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
@@ -84,6 +87,10 @@ Base:
   ]
 }
 ```
+<br /></details>
+
+
+
 [back to top](#endpoint-tables)
 ## Conferences
 
@@ -92,6 +99,9 @@ for all current NHL conferences.
 
 `GET https://statsapi.web.nhl.com/api/v1/conferences/ID` Same as above but for
 specific conference, also can look up id 7 for World Cup of Hockey.
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -114,6 +124,8 @@ specific conference, also can look up id 7 for World Cup of Hockey.
 }
 ```
 
+<br /></details>
+
 [back to top](#endpoint-tables)
 ## Divisions
 `GET https://statsapi.web.nhl.com/api/v1/divisions` Returns full list of divisions
@@ -122,6 +134,9 @@ Does not show inactive divisions
 
 `GET https://statsapi.web.nhl.com/api/v1/divisions/ID` Same as above but only for a
 single division. This can show old inactive divisions such as 13 Patrick.
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -141,6 +156,9 @@ single division. This can show old inactive divisions such as 13 Patrick.
   ]
 }
 ```
+
+<br /></details>
+
 [back to top](#endpoint-tables)
 ## Franchises
 
@@ -149,6 +167,7 @@ single division. This can show old inactive divisions such as 13 Patrick.
 `GET https://statsapi.web.nhl.com/api/v1/franchises/ID` Gets information on a specific franchise
 
 [back to top](#endpoint-tables)
+
 ## Tournaments
 
 `GET https://statsapi.web.nhl.com/api/v1/tournamentTypes`
@@ -158,6 +177,9 @@ Gets the possible different tournament types.
 `GET https://statsapi.web.nhl.com/api/v1/tournaments/playoffs`
 
 This is used for tracking nested tournaments, specifically the Playoffs due to the nature of their structure.
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -221,6 +243,7 @@ This is used for tracking nested tournaments, specifically the Playoffs due to t
   } ]
 }
 ```
+<br /></details>
 
 In order to get additional information the expand modifer can be used such as this example
 
@@ -232,6 +255,9 @@ In order to get additional information the expand modifer can be used such as th
 `GET https://statsapi.web.nhl.com/api/v1/venues` Get all NHL Venues in API database.
 
 `GET https://statsapi.web.nhl.com/api/v1/venues/ID` Get an NHL Venue.
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -246,6 +272,7 @@ In order to get additional information the expand modifer can be used such as th
   ]
 }
 ```
+<br /></details>
 
 [back to top](#endpoint-tables)
 
@@ -310,6 +337,9 @@ This shows all the possible play types found within the liveData/plays portion o
 
 `GET https://statsapi.web.nhl.com/api/v1/draft/YEAR` Takes a YYYY format year and returns draft data
 
+<details>
+  <summary>click for example</summary>
+
 ```json
 {
   "copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
@@ -335,11 +365,15 @@ This shows all the possible play types found within the liveData/plays portion o
         }
       },
 ```
+<br /></details>
+
 [back to top](#endpoint-tables)
 ## Players
 
 `GET https://statsapi.web.nhl.com/api/v1/people/ID` Gets details for a player, must
 specify the id value in order to return data.
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -379,6 +413,9 @@ specify the id value in order to return data.
   } ]
 }
 ```
+<br /></details>
+<br />
+
 
 `GET https://statsapi.web.nhl.com/api/v1/people/ID/stats` Complex endpoint with
 lots of append options to change what kind of stats you wish to obtain
@@ -393,6 +430,8 @@ for a player
 
 _note - stats have changed over the years, the below sample is for Wayne Gretzky
 and does not include things like evenTimeOnIce and other time related stats_
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -424,8 +463,12 @@ and does not include things like evenTimeOnIce and other time related stats_
   } ]
 }
 ```
+<br /></details>
 
 _however here is Alex Ovechkin's 20162017 season stats which include time information_
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -470,8 +513,12 @@ _however here is Alex Ovechkin's 20162017 season stats which include time inform
 }
 
 ```
+<br /></details>
 
 `?stats=yearByYear` Provides a list of every season for a player's career
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -780,8 +827,12 @@ _however here is Alex Ovechkin's 20162017 season stats which include time inform
   } ]
 }
 ```
+<br /></details>
 
 `?stats=homeAndAway&season=20162017` Provides a split between home and away games.
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -856,6 +907,7 @@ _however here is Alex Ovechkin's 20162017 season stats which include time inform
   } ]
 }
 ```
+<br /></details>
 
 `?stats=winLoss&season=20162017` Very similar to the previous modifier except it provides the W/L/OT split instead of Home and Away
 
@@ -873,6 +925,9 @@ _however here is Alex Ovechkin's 20162017 season stats which include time inform
 
 `?stats=regularSeasonStatRankings&season=20162017` Returns where someone stands vs
 the rest of the league for a specific regularSeasonStatRankings
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -902,9 +957,13 @@ the rest of the league for a specific regularSeasonStatRankings
   } ]
 }
 ```
+<br /></details>
 
 `?stats=goalsByGameSituation&season=20162017` Shows number on when goals for a
 player happened like how many in the shootout, how many in each period, etc.
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -938,9 +997,13 @@ player happened like how many in the shootout, how many in each period, etc.
   } ]
 }
 ```
+<br /></details>
 
 `?stats=onPaceRegularSeason&season=20172018` This only works with the current
 in-progress season and shows **projected** totals based on current onPaceRegularSeason
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -984,6 +1047,8 @@ in-progress season and shows **projected** totals based on current onPaceRegular
 }
 ```
 
+<br /></details>
+
 [back to top](#endpoint-tables)
 
 
@@ -993,6 +1058,8 @@ in-progress season and shows **projected** totals based on current onPaceRegular
 `GET https://statsapi.web.nhl.com/api/v1/draft/prospects` Get all NHL Entry Draft prospects.
 
 `GET https://statsapi.web.nhl.com/api/v1/draft/prospects/ID` Get an NHL Entry Draft prospect.
+
+<br /></details>
 
 ```json
 {
@@ -1034,6 +1101,8 @@ in-progress season and shows **projected** totals based on current onPaceRegular
   ]
 }
 ```
+<br /></details>
+
 [back to top](#endpoint-tables)
 # Schedule endpoints
 
@@ -1067,6 +1136,9 @@ in-progress season and shows **projected** totals based on current onPaceRegular
 `?gameType=R` Restricts results to only regular season games. Can be set to any value from [Game Types](#game-types) endpoint
 
 `GET https://statsapi.web.nhl.com/api/v1/schedule?teamId=30` Returns Minnesota Wild games for the current day.
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -1138,8 +1210,12 @@ in-progress season and shows **projected** totals based on current onPaceRegular
   } ]
 }
 ```
-
+<br /></details>
+<br />
 `GET https://statsapi.web.nhl.com/api/v1/schedule?teamId=30&startDate=2018-01-02&endDate=2018-01-02` Returns Minnesota Wild games for January 2, 2018 with attached linescores and broadcasts.
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -1327,11 +1403,16 @@ in-progress season and shows **projected** totals based on current onPaceRegular
 }
 ```
 
+<br /></details>
+
 [back to top](#endpoint-tables)
 
 ## Seasons
 
 `GET https://statsapi.web.nhl.com/api/v1/seasons` Returns data on each season such as if ties were used, divisions, wildcards or the Olympics were participated in
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -1350,6 +1431,7 @@ in-progress season and shows **projected** totals based on current onPaceRegular
   } ]
 }
 ```
+<br /></details>
 
 `GET https://statsapi.web.nhl.com/api/v1/seasons/20172018` Gets just the data for a specific season
 
@@ -1364,6 +1446,9 @@ in-progress season and shows **projected** totals based on current onPaceRegular
 
 `GET https://statsapi.web.nhl.com/api/v1/standings` Returns ordered standings data
 for each team broken up by divisions
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -1394,12 +1479,16 @@ for each team broken up by divisions
   },
 }
 ```
+<br /></details>
 
 #### Modifiers
 
 `?season=20032004` Standings for a specified season
 
 `?expand=standings.record` Detailed information for each team including home and away records, record in shootouts, last ten games, and split head-to-head records against divisions and conferences
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -1459,6 +1548,7 @@ for each team broken up by divisions
   }
 }
 ```
+<br /></details>
 
 [back to top](#endpoint-tables)
 
@@ -1466,6 +1556,9 @@ for each team broken up by divisions
 
 `GET https://statsapi.web.nhl.com/api/v1/standingsTypes` Returns all the standings types
 to be used in order do get a specific standings
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -1498,6 +1591,7 @@ to be used in order do get a specific standings
   "description" : "Standings by League"
 } ]
 ```
+<br /></details>
 
 [back to top](#endpoint-tables)
 
@@ -1507,6 +1601,8 @@ to be used in order do get a specific standings
 `GET https://statsapi.web.nhl.com/api/v1/teams/5/stats` Returns current season stats and the current season rankings for a specific team
 
 Ex:
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -1597,6 +1693,8 @@ Ex:
 }
 ```
 
+<br /></details>
+
 [back to top](#endpoint-tables)
 
 ## Teams
@@ -1626,6 +1724,9 @@ Add these to the end of the url
 `?teamId=4,5,29` Can string team id together to get multiple teams
 
 `?stats=statsSingleSeasonPlayoffs` Specify which stats to get. Not fully sure all of the values
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -1669,9 +1770,13 @@ Add these to the end of the url
     "active" : true
   }, {
 ```
+<br /></details>
 
 `GET https://statsapi.web.nhl.com/api/v1/teams/ID/roster` Returns entire roster for a team
 including id value, name, jersey number and position details.
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
@@ -1692,6 +1797,7 @@ including id value, name, jersey number and position details.
   },]
   }
 ```
+<br /></details>
 
 [back to top](#endpoint-tables)
 
