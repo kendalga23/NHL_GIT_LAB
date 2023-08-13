@@ -1,208 +1,109 @@
 # NHL Stats API Documentation
----
 
-[OpenAPI 3.0 specification file for the NHL API](https://github.com/erunion/sport-api-specifications/tree/master/nhl) thanks to @[erunion](https://github.com/erunion)
+[OpenAPI 3.0 specification file for the NHL API](https://github.com/erunion/sport-api-specifications/tree/master/nhl).
 
-[Configurations](#configurations)
+Thanks to [erunion](https://github.com/erunion)
 
-[Expands](#expands)
+Base:
+`https://statsapi.web.nhl.com`
 
-[Languages](#languages)
+# Endpoint Tables
 
-[Platforms](#platforms)
+| [LEAGUE ENDPOINTS](#league-endpoints) |                                                                            |
+| ------------------------------------- | -------------------------------------------------------------------------- |
+| [Awards](#awards)                     | Get all awards; get individual award                                       |
+| [Conferences](#conferences)           | Get all conferences; get individual conferences                            |
+| [Divisions](#divisions)               | Get all divisions; get individual divisions (historical options available) |
+| [Franchises](#franchises)             | Get all franchises; Get individual franchise                               |
+| [Tournaments](#tournaments)           | Get types; Get playoffs                                                    |
+| [Venues](#venues)                     | Get all venues; Get individual venue                                       |
 
-[Franchises](#franchises)
+| [GAME ENDPOINTS](#game-endpoints) |                                                      |
+| --------------------------------- | ---------------------------------------------------- |
+| [Games](#games)                   | Get live data, boxscore, linescore, content, updates |
+| [Game IDs](#game-ids)             | Description of how Game IDs are constructed          |
+| [Game Status](#game-status)       | List of Game Status                                  |
+| [Game Types](#game-types)         | List of game types and post-season status            |
+| [Play Types](#play-types)         | types of players for live data                       |
 
-[Teams](#teams)
+| [PLAYER ENDPOINTS](#player-endpoints) |                                                                       |
+| ------------------------------------- | --------------------------------------------------------------------- |
+| [Draft](#draft)                       | Get most recent draft; get past draft (by year)whatever               |
+| [Players](#players)                   | Player-specific (see [player stat modifiers](#player-stat-modifiers)) |
+| [Prospects](#prospects)               | Players not in the league yet                                         |
 
-[Divisions](#divisions)
+| [SCHEDULE ENDPOINTS](#schedule-endpoints) |                                                    |
+| ----------------------------------------- | -------------------------------------------------- |
+| [Schedule](#schedule)                     | see [modifiers](#schedule-modifiers) for varietals |
+| [Seasons](#seasons)                       | ties? Divisions? Olympics? etc                     |
 
-[Conferences](#conferences)
+| [STANDINGS ENDPOINTS](#standings-endpoints) |                            |
+| ------------------------------------------- | -------------------------- |
+| [Standings](#standings)                     | Aggregate of standings     |
+| [Standings Types](#standings-types)         | Variety of standings types |
 
-[People](#people)
+| [TEAMS ENDPOINTS](#teams-endpoints) |                                                              |
+| ----------------------------------- | ------------------------------------------------------------ |
+| [Team Stats](#team-stats)           | Current stats and rankings for categories                    |
+| [Teams](#teams)                     | see [Team modifiers](#team-modifiers) for additional options |
 
-[Game-IDs](#game-ids)
+| [MISCELLANEOUS ENDPOINTS](#miscellaneous-endpoints) |                                               |
+| --------------------------------------------------- | --------------------------------------------- |
+| [Configurations](#configurations)                   | List of other endpoints                       |
+| [Event Types](#event-types)                         | non-hockey related to venues                  |
+| [Expands](#expands)                                 | Shows all possible input for the expand field |
+| [Languages](#languages)                             | fairly obvious                                |
+| [Performer Types](#performer-types)                 | non-hockey performers for venue               |
+| [Platforms](#platforms)                             | Tailor API to specific platform               |
+| [Stat Types](#stat-types)                           | List of stat types used for players           |
 
-[Game Types](#game-types)
+<br />
+<br />
+<br />
 
-[Tournaments](#tournaments)
+# League endpoints
+## Awards
+`GET https://statsapi.web.nhl.com/api/v1/awards` Get all NHL Awards.
 
-[Schedule](#schedule)
+`GET https://statsapi.web.nhl.com/api/v1/awards/ID` Get an NHL Award.
 
-[Seasons](#seasons)
+<details>
+  <summary>click for example</summary>
 
-[Standings](#standings)
-
-[Standings Types](#standings-types)
-
-[Stats Types](#stats-types)
-
-[Team Stats](#team-stats)
-
-[Draft](#draft)
-
-[Prospects](#prospects)
-
-[Awards](#awards)
-
-[Venues](#venues)
-
-[Event Types](#event-types)
-
-[Performer Types](#performer-types)
-
----
-
-### <a name="configurations"></a>Configurations
-
-`GET https://statsapi.web.nhl.com/api/v1/configurations` Returns a huge list of other endpoints, sort of the rosetta stone discovery tying many parts of the API together
-
----
-### <a name="expands"></a>Expands
-
-`GET https://statsapi.web.nhl.com/api/v1/expands` Shows all possible input for the expand field
-
----
-### <a name="languages"></a>Languages
-
-`GET https://statsapi.web.nhl.com/api/v1/languages`
-Shows all possible languages for the API
-
----
-### <a name="platforms"></a>Platforms
-
-`GET https://statsapi.web.nhl.com/api/v1/platforms`
-
-This seems to allow the API to be tailored to a specific platform, indicating platform specific behavior/apps.
-
----
-### <a name="franchises"></a>Franchises
-
-`GET https://statsapi.web.nhl.com/api/v1/franchises` Returns a list of franchises
-
-`GET https://statsapi.web.nhl.com/api/v1/franchises/ID` Gets information on a specific franchise
-
----
-### <a name="teams"></a>Teams
-
-`GET https://statsapi.web.nhl.com/api/v1/teams` Returns a list of data about
-all teams including their id, venue details, division, conference and franchise information.
-
-`GET https://statsapi.web.nhl.com/api/v1/teams/ID` Returns the same information as above just
-for a single team instead of the entire league.
-#### Modifiers
-`?expand=team.roster` Shows roster of active players for the specified team 
-
-`?expand=person.names` Same as above, but gives less info.
-
-`?expand=team.schedule.next` Returns details of the upcoming game for a team
-
-`?expand=team.schedule.previous` Same as above but for the last game played
-
-`?expand=team.stats` Returns the teams stats for the season
-
-`?expand=team.roster&season=20142015` Adding the season identifier shows the roster for that season
-
-`?teamId=4,5,29` Can string team id together to get multiple teams
-
-`?stats=statsSingleSeasonPlayoffs` Specify which stats to get. Not fully sure all of the values
-
-```
+```json
 {
-  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
-  "teams" : [ {
-    "id" : 1,
-    "name" : "New Jersey Devils",
-    "link" : "/api/v1/teams/1",
-    "venue" : {
-      "name" : "Prudential Center",
-      "link" : "/api/v1/venues/null",
-      "city" : "Newark",
-      "timeZone" : {
-        "id" : "America/New_York",
-        "offset" : -5,
-        "tz" : "EST"
-      }
-    },
-    "abbreviation" : "NJD",
-    "teamName" : "Devils",
-    "locationName" : "New Jersey",
-    "firstYearOfPlay" : "1982",
-    "division" : {
-      "id" : 18,
-      "name" : "Metropolitan",
-      "link" : "/api/v1/divisions/18"
-    },
-    "conference" : {
-      "id" : 6,
-      "name" : "Eastern",
-      "link" : "/api/v1/conferences/6"
-    },
-    "franchise" : {
-      "franchiseId" : 23,
-      "teamName" : "Devils",
-      "link" : "/api/v1/franchises/23"
-    },
-    "shortName" : "New Jersey",
-    "officialSiteUrl" : "http://www.truesince82.com",
-    "franchiseId" : 23,
-    "active" : true
-  }, {
-```
-
-`GET https://statsapi.web.nhl.com/api/v1/teams/ID/roster` Returns entire roster for a team
-including id value, name, jersey number and position details.
-
-```
-{
-  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
-  "roster" : [ {
-    "person" : {
-      "id" : 8477474,
-      "fullName" : "Madison Bowey",
-      "link" : "/api/v1/people/8477474"
-    },
-    "jerseyNumber" : "22",
-    "position" : {
-      "code" : "D",
-      "name" : "Defenseman",
-      "type" : "Defenseman",
-      "abbreviation" : "D"
+  "copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
+  "awards": [
+    {
+      "name": "Stanley Cup",
+      "shortName": "The Cup",
+      "description": "History: The Stanley Cup, the oldest trophy competed for by professional athletes in North America, was donated by Frederick Arthur, Lord Stanley of Preston and son of the Earl of Derby, in 1893. Lord Stanley purchased the trophy for 10 guineas ($50 at that time) for presentation to the amateur hockey champions of Canada. Since 1906, when Canadian teams began to pay their players openly, the Stanley Cup has been the symbol of professional hockey supremacy. It has been contested only by NHL teams since 1926-27 and has been under the exclusive control of the NHL since 1947.",
+      "recipientType": "Team",
+      "history": "It all started on March 18, 1892, at a dinner of the Ottawa Amateur Athletic Association. Lord Kilcoursie, a player on the Ottawa Rebels hockey club from Government House, delivered the following message on behalf of Lord Stanley, the Earl of Preston and Governor General of Canada  -- &quot;I have for some time been thinking that it would be a good thing if there were a challenge cup which should be held from year to year by the champion hockey team in the Dominion (of Canada).  There does not appear to be any such outward sign of a championship at present, and considering the general interest which matches now elicit, and the importance of having the game played fairly and under rules generally recognized, I am willing to give a cup which shall be held from year to year by the winning team.&quot; --  Shortly thereafter, Lord Stanley purchased a silver cup measuring 7.5 inches high by 11.5 inches across for the sum of 10 guineas (approximately $50); appointed two Ottawa gentlemen, Sheriff John Sweetland and Philip D. Ross, as trustees of that cup.  The first winner of the Stanley Cup was the Montreal Amateur Athletic Association (AAA) hockey club, champions of the Amateur Hockey Association of Canada for 1893. Ironically, Lord Stanley never witnessed a championship game nor attended a presentation of his trophy, having returned to his native England in the midst of the 1893 season. Nevertheless, the quest for his trophy has become one of the worlds most prestigious sporting competitions.",
+      "imageUrl": "http://3.cdn.nhle.com/nhl/images/upload/2017/09/Stanley-Cup.jpg",
+      "homePageUrl": "http://www.nhl.com/cup/index.html",
+      "link": "/api/v1/awards/1"
     }
-  },
+  ]
+}
 ```
----
-### <a name="divisions"></a>Divisions
-`GET https://statsapi.web.nhl.com/api/v1/divisions`  Returns full list of divisions
-and associated data like which conference they belong to, id values and API links.
-Does not show inactive divisions
+<br /></details>
 
-`GET https://statsapi.web.nhl.com/api/v1/divisions/ID` Same as above but only for a
-single division. This can show old inactive divisions such as 13 Patrick.
-```
-{
-  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
-  "divisions" : [ {
-    "id" : 17,
-    "name" : "Atlantic",
-    "link" : "/api/v1/divisions/17",
-    "abbreviation" : "A",
-    "conference" : {
-      "id" : 6,
-      "name" : "Eastern",
-      "link" : "/api/v1/conferences/6"
-    },
-    "active" : true
-  },
-```
----
-### <a name="conferences"></a>Conferences
+
+
+[back to top](#endpoint-tables)
+## Conferences
+
 `GET https://statsapi.web.nhl.com/api/v1/conferences` Returns conference details
 for all current NHL conferences.
 
 `GET https://statsapi.web.nhl.com/api/v1/conferences/ID` Same as above but for
 specific conference, also can look up id 7 for World Cup of Hockey.
-```
+
+<details>
+  <summary>click for example</summary>
+
+```json
 {
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "conferences" : [ {
@@ -222,11 +123,259 @@ specific conference, also can look up id 7 for World Cup of Hockey.
   } ]
 }
 ```
----
-### <a name="people"></a>People
+
+<br /></details>
+
+[back to top](#endpoint-tables)
+## Divisions
+`GET https://statsapi.web.nhl.com/api/v1/divisions` Returns full list of divisions
+and associated data like which conference they belong to, id values and API links.
+Does not show inactive divisions
+
+`GET https://statsapi.web.nhl.com/api/v1/divisions/ID` Same as above but only for a
+single division. This can show old inactive divisions such as 13 Patrick.
+
+<details>
+  <summary>click for example</summary>
+
+```json
+{
+  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
+  "divisions" : [ {
+    "id" : 17,
+    "name" : "Atlantic",
+    "link" : "/api/v1/divisions/17",
+    "abbreviation" : "A",
+    "conference" : {
+      "id" : 6,
+      "name" : "Eastern",
+      "link" : "/api/v1/conferences/6"
+      },
+    "active" : true
+    },
+  ]
+}
+```
+
+<br /></details>
+
+[back to top](#endpoint-tables)
+## Franchises
+
+`GET https://statsapi.web.nhl.com/api/v1/franchises` Returns a list of franchises
+
+`GET https://statsapi.web.nhl.com/api/v1/franchises/ID` Gets information on a specific franchise
+
+[back to top](#endpoint-tables)
+
+## Tournaments
+
+`GET https://statsapi.web.nhl.com/api/v1/tournamentTypes`
+
+Gets the possible different tournament types.
+
+`GET https://statsapi.web.nhl.com/api/v1/tournaments/playoffs`
+
+This is used for tracking nested tournaments, specifically the Playoffs due to the nature of their structure.
+
+<details>
+  <summary>click for example</summary>
+
+```json
+{
+  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2019. All Rights Reserved.",
+  "id" : 1,
+  "name" : "Playoffs",
+  "season" : "20182019",
+  "defaultRound" : 1,
+  "rounds" : [ {
+    "number" : 1,
+    "code" : 1,
+    "names" : {
+      "name" : "First Round",
+      "shortName" : "R1"
+    },
+    "format" : {
+      "name" : "BO7",
+      "description" : "Best of 7",
+      "numberOfGames" : 7,
+      "numberOfWins" : 4
+    }
+  }, {
+    "number" : 2,
+    "code" : 2,
+    "names" : {
+      "name" : "Second Round",
+      "shortName" : "R2"
+    },
+    "format" : {
+      "name" : "BO7",
+      "description" : "Best of 7",
+      "numberOfGames" : 7,
+      "numberOfWins" : 4
+    }
+  }, {
+    "number" : 3,
+    "code" : 3,
+    "names" : {
+      "name" : "Conference Finals",
+      "shortName" : "CF"
+    },
+    "format" : {
+      "name" : "BO7",
+      "description" : "Best of 7",
+      "numberOfGames" : 7,
+      "numberOfWins" : 4
+    }
+  }, {
+    "number" : 4,
+    "code" : 4,
+    "names" : {
+      "name" : "Stanley Cup Final",
+      "shortName" : "SCF"
+    },
+    "format" : {
+      "name" : "BO7",
+      "description" : "Best of 7",
+      "numberOfGames" : 7,
+      "numberOfWins" : 4
+    }
+  } ]
+}
+```
+<br /></details>
+
+In order to get additional information the expand modifer can be used such as this example
+
+`?expand=round.series,schedule.game.seriesSummary&season=20182019` This will add in details like the game summary and the season
+
+[back to top](#endpoint-tables)
+## Venues
+
+`GET https://statsapi.web.nhl.com/api/v1/venues` Get all NHL Venues in API database.
+
+`GET https://statsapi.web.nhl.com/api/v1/venues/ID` Get an NHL Venue.
+
+<details>
+  <summary>click for example</summary>
+
+```json
+{
+  "copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2019. All Rights Reserved.",
+  "venues": [
+    {
+      "id": 5064,
+      "name": "Pepsi Center",
+      "link": "/api/v1/venues/5064",
+      "appEnabled": true
+    }
+  ]
+}
+```
+<br /></details>
+
+[back to top](#endpoint-tables)
+
+
+# Game endpoints
+## Games
+`GET https://statsapi.web.nhl.com/api/v1/game/ID/feed/live` Returns all data about
+a specified game id including play data with on-ice coordinates and post-game
+details like first, second and third stars and any details about shootouts. The
+data returned is simply too large at often over 30k lines and is best explored
+with a JSON viewer.
+
+`GET https://statsapi.web.nhl.com/api/v1/game/ID/boxscore` Returns far less detail
+than `feed/live` and is much more suitable for post-game details including goals,
+shots, PIMs, blocked, takeaways, giveaways and hits.
+
+`GET https://statsapi.web.nhl.com/api/v1/game/ID/linescore` Even fewer details than
+boxscore. Has goals, shots on goal, powerplay and goalie pulled status, number of
+skaters and shootout information if applicable
+
+`GET http://statsapi.web.nhl.com/api/v1/game/ID/content` Complex endpoint returning
+multiple types of media relating to the game including videos of shots, goals and saves.
+
+`GET https://statsapi.web.nhl.com/api/v1/game/ID/feed/live/diffPatch?startTimecode=yyyymmdd_hhmmss`
+Returns updates (like new play events, updated stats for boxscore, etc.) for the specified game ID
+since the given startTimecode. If the startTimecode param is missing, returns an empty array.
+
+[back to top](#endpoint-tables)
+## Game IDs
+The first 4 digits identify the season of the game (ie. 2017 for the 2017-2018 season). The next 2 digits give the type of game, where 01 = preseason, 02 = regular season, 03 = playoffs, 04 = all-star. The final 4 digits identify the specific game number. For regular season and preseason games, this ranges from 0001 to the number of games played. (1271 for seasons with 31 teams (2017 and onwards) and 1230 for seasons with 30 teams). For playoff games, the 2nd digit of the specific number gives the round of the playoffs, the 3rd digit specifies the matchup, and the 4th digit specifies the game (out of 7).
+
+[back to top](#endpoint-tables)
+## Game Status
+
+`GET https://statsapi.web.nhl.com/api/v1/gameStatus`
+
+Returns a list of game status values
+
+[back to top](#endpoint-tables)
+## Game Types
+
+`GET https://statsapi.web.nhl.com/api/v1/gameTypes`
+
+Returns list of game types with description and post-season status
+
+[back to top](#endpoint-tables)
+## Play Types
+
+`GET https://statsapi.web.nhl.com/api/v1/playTypes`
+
+This shows all the possible play types found within the liveData/plays portion of the game feed
+
+[Back to top](#endpoint-tables)
+<br />
+<br />
+<br />
+
+# Player endpoints
+## Draft
+
+`GET https://statsapi.web.nhl.com/api/v1/draft` Get round-by-round data for current year's NHL Entry Draft.
+
+`GET https://statsapi.web.nhl.com/api/v1/draft/YEAR` Takes a YYYY format year and returns draft data
+
+<details>
+  <summary>click for example</summary>
+
+```json
+{
+  "copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
+  "drafts": [{
+    "draftYear": 2017,
+    "rounds": [{
+      "roundNumber": 1,
+      "round": "1",
+      "picks": [{
+        "year": 2017,
+        "round": "1",
+        "pickOverall": 1,
+        "pickInRound": 1,
+        "team": {
+          "id": 1,
+          "name": "New Jersey Devils",
+          "link": "/api/v1/teams/1"
+        },
+        "prospect": {
+          "id": 65242,
+          "fullName": "Nico Hischier",
+          "link": "/api/v1/draft/prospects/65242"
+        }
+      },
+```
+<br /></details>
+
+[back to top](#endpoint-tables)
+## Players
+
 `GET https://statsapi.web.nhl.com/api/v1/people/ID` Gets details for a player, must
 specify the id value in order to return data.
-```
+<details>
+  <summary>click for example</summary>
+
+```json
 {
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "people" : [ {
@@ -264,19 +413,27 @@ specify the id value in order to return data.
   } ]
 }
 ```
+<br /></details>
+<br />
+
+
 `GET https://statsapi.web.nhl.com/api/v1/people/ID/stats` Complex endpoint with
 lots of append options to change what kind of stats you wish to obtain
 
-`GET https://statsapi.web.nhl.com/api/v1/positions` Simple endpoint that 
+`GET https://statsapi.web.nhl.com/api/v1/positions` Simple endpoint that
 obtains an array of eligible positions in the NHL
 
-#### Modifiers
-`?stats=statsSingleSeason&season=19801981`  Obtains single season statistics
+#### Player Stat Modifiers
+
+`?stats=statsSingleSeason&season=19801981` Obtains single season statistics
 for a player
 
-*note - stats have changed over the years, the below sample is for Wayne Gretzky
-and does not include things like evenTimeOnIce and other time related stats*
-```
+_note - stats have changed over the years, the below sample is for Wayne Gretzky
+and does not include things like evenTimeOnIce and other time related stats_
+<details>
+  <summary>click for example</summary>
+
+```json
 {
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "stats" : [ {
@@ -306,10 +463,14 @@ and does not include things like evenTimeOnIce and other time related stats*
   } ]
 }
 ```
+<br /></details>
 
-*however here is Alex Ovechkin's 20162017 season stats which include time information*
+_however here is Alex Ovechkin's 20162017 season stats which include time information_
 
-```
+<details>
+  <summary>click for example</summary>
+
+```json
 {
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "stats" : [ {
@@ -352,9 +513,14 @@ and does not include things like evenTimeOnIce and other time related stats*
 }
 
 ```
+<br /></details>
 
 `?stats=yearByYear` Provides a list of every season for a player's career
-```
+
+<details>
+  <summary>click for example</summary>
+
+```json
 {
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2019. All Rights Reserved.",
   "stats" : [ {
@@ -413,10 +579,10 @@ and does not include things like evenTimeOnIce and other time related stats*
         "link" : "/api/v1/league/147"
       },
       "sequenceNumber" : 3
-    }, 
-    
+    },
+
     ...
-    
+
     , {
       "season" : "20042005",
       "stat" : {
@@ -596,9 +762,9 @@ and does not include things like evenTimeOnIce and other time related stats*
       },
       "sequenceNumber" : 3
     }
-    
+
     ...
-    
+
     {
       "season" : "20182019",
       "stat" : {
@@ -661,9 +827,14 @@ and does not include things like evenTimeOnIce and other time related stats*
   } ]
 }
 ```
+<br /></details>
 
 `?stats=homeAndAway&season=20162017` Provides a split between home and away games.
-```
+
+<details>
+  <summary>click for example</summary>
+
+```json
 {
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "stats" : [ {
@@ -736,6 +907,7 @@ and does not include things like evenTimeOnIce and other time related stats*
   } ]
 }
 ```
+<br /></details>
 
 `?stats=winLoss&season=20162017` Very similar to the previous modifier except it provides the W/L/OT split instead of Home and Away
 
@@ -753,7 +925,11 @@ and does not include things like evenTimeOnIce and other time related stats*
 
 `?stats=regularSeasonStatRankings&season=20162017` Returns where someone stands vs
 the rest of the league for a specific regularSeasonStatRankings
-```
+
+<details>
+  <summary>click for example</summary>
+
+```json
 {
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "stats" : [ {
@@ -781,11 +957,15 @@ the rest of the league for a specific regularSeasonStatRankings
   } ]
 }
 ```
+<br /></details>
 
 `?stats=goalsByGameSituation&season=20162017` Shows number on when goals for a
 player happened like how many in the shootout, how many in each period, etc.
 
-```
+<details>
+  <summary>click for example</summary>
+
+```json
 {
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "stats" : [ {
@@ -817,10 +997,15 @@ player happened like how many in the shootout, how many in each period, etc.
   } ]
 }
 ```
+<br /></details>
 
 `?stats=onPaceRegularSeason&season=20172018` This only works with the current
 in-progress season and shows **projected** totals based on current onPaceRegularSeason
-```
+
+<details>
+  <summary>click for example</summary>
+
+```json
 {
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "stats" : [ {
@@ -862,140 +1047,76 @@ in-progress season and shows **projected** totals based on current onPaceRegular
 }
 ```
 
----
-### <a name="game"></a>Game
-`GET https://statsapi.web.nhl.com/api/v1/game/ID/feed/live` Returns all data about
-a specified game id including play data with on-ice coordinates and post-game
-details like first, second and third stars and any details about shootouts.  The
-data returned is simply too large at often over 30k lines and is best explored
-with a JSON viewer.
+<br /></details>
 
-`GET https://statsapi.web.nhl.com/api/v1/game/ID/boxscore` Returns far less detail
-than `feed/live` and is much more suitable for post-game details including goals,
-shots, PIMs, blocked, takeaways, giveaways and hits.
-
-`GET https://statsapi.web.nhl.com/api/v1/game/ID/linescore` Even fewer details than
-boxscore. Has goals, shots on goal, powerplay and goalie pulled status, number of 
-skaters and shootout information if applicable
-
-`GET http://statsapi.web.nhl.com/api/v1/game/ID/content` Complex endpoint returning
-multiple types of media relating to the game including videos of shots, goals and saves.
-
-`GET https://statsapi.web.nhl.com/api/v1/game/ID/feed/live/diffPatch?startTimecode=yyyymmdd_hhmmss`
-Returns updates (like new play events, updated stats for boxscore, etc.) for the specified game ID
-since the given startTimecode. If the startTimecode param is missing, returns an empty array.
-
-#### <a name="game-ids"></a>Game IDs
-The first 4 digits identify the season of the game (ie. 2017 for the 2017-2018 season). The next 2 digits give the type of game, where 01 = preseason, 02 = regular season, 03 = playoffs, 04 = all-star. The final 4 digits identify the specific game number. For regular season and preseason games, this ranges from 0001 to the number of games played. (1271 for seasons with 31 teams (2017 and onwards) and 1230 for seasons with 30 teams). For playoff games, the 2nd digit of the specific number gives the round of the playoffs, the 3rd digit specifies the matchup, and the 4th digit specifies the game (out of 7).
+[back to top](#endpoint-tables)
 
 
-#### <a name="game-types"></a>Game Types
 
-`GET https://statsapi.web.nhl.com/api/v1/gameTypes`
+## Prospects
 
-Returns list of game types with description and post-season status
+`GET https://statsapi.web.nhl.com/api/v1/draft/prospects` Get all NHL Entry Draft prospects.
 
-#### <a name="game-status"></a>Game Status
+`GET https://statsapi.web.nhl.com/api/v1/draft/prospects/ID` Get an NHL Entry Draft prospect.
 
-`GET https://statsapi.web.nhl.com/api/v1/gameStatus`
+<br /></details>
 
-Returns a list of game status values
-
-#### <a name="play-types"></a>Play Types
-
-`GET https://statsapi.web.nhl.com/api/v1/playTypes`
-
-This shows all the possible play types found within the liveData/plays portion of the game feed
-
----
-### <a name="tournaments"></a>Tournaments
-
-`GET https://statsapi.web.nhl.com/api/v1/tournamentTypes`
-
-Gets the possible different tournament types.
-
-`GET https://statsapi.web.nhl.com/api/v1/tournaments/playoffs`
-
-This is used for tracking nested tournaments, specifically the Playoffs due to the nature of their structure.
-
-```
+```json
 {
-  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2019. All Rights Reserved.",
-  "id" : 1,
-  "name" : "Playoffs",
-  "season" : "20182019",
-  "defaultRound" : 1,
-  "rounds" : [ {
-    "number" : 1,
-    "code" : 1,
-    "names" : {
-      "name" : "First Round",
-      "shortName" : "R1"
-    },
-    "format" : {
-      "name" : "BO7",
-      "description" : "Best of 7",
-      "numberOfGames" : 7,
-      "numberOfWins" : 4
+  "copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
+  "prospects": [
+    {
+      "id": 53727,
+      "fullName": "Zbynek Horak",
+      "link": "/api/v1/draft/prospects/53727",
+      "firstName": "Zbynek",
+      "lastName": "Horak",
+      "birthDate": "1995-03-08",
+      "birthCountry": "CZE",
+      "height": "5' 10\"",
+      "weight": 168,
+      "shootsCatches": "L",
+      "primaryPosition": {
+        "code": "L",
+        "name": "Left Wing",
+        "type": "Forward",
+        "abbreviation": "LW"
+      },
+      "draftStatus": "Elig",
+      "prospectCategory": {
+        "id": 2,
+        "shortName": "Euro Skater",
+        "name": "European Skater"
+      },
+      "amateurTeam": {
+        "name": "Znojmo Jr.",
+        "link": "/api/v1/teams/null"
+      },
+      "amateurLeague": {
+        "name": "AUSTRIA-JR.",
+        "link": "/api/v1/league/null"
+      },
+      "ranks": {}
     }
-  }, {
-    "number" : 2,
-    "code" : 2,
-    "names" : {
-      "name" : "Second Round",
-      "shortName" : "R2"
-    },
-    "format" : {
-      "name" : "BO7",
-      "description" : "Best of 7",
-      "numberOfGames" : 7,
-      "numberOfWins" : 4
-    }
-  }, {
-    "number" : 3,
-    "code" : 3,
-    "names" : {
-      "name" : "Conference Finals",
-      "shortName" : "CF"
-    },
-    "format" : {
-      "name" : "BO7",
-      "description" : "Best of 7",
-      "numberOfGames" : 7,
-      "numberOfWins" : 4
-    }
-  }, {
-    "number" : 4,
-    "code" : 4,
-    "names" : {
-      "name" : "Stanley Cup Final",
-      "shortName" : "SCF"
-    },
-    "format" : {
-      "name" : "BO7",
-      "description" : "Best of 7",
-      "numberOfGames" : 7,
-      "numberOfWins" : 4
-    }
-  } ]
+  ]
 }
 ```
+<br /></details>
 
-In order to get additional information the expand modifer can be used such as this example
+[back to top](#endpoint-tables)
+# Schedule endpoints
 
-`?expand=round.series,schedule.game.seriesSummary&season=20182019` This will add in details  like the game summary and the season
-
-
----
-### <a name="schedule"></a>Schedule
+## Schedule
 
 `GET https://statsapi.web.nhl.com/api/v1/schedule` Returns a list of data about the schedule for a specified date range. If no date range is specified, returns results from the current day.
 
-#### Notes
+>Note: Without any flags or modifiers this endpoint will NOT return pre-season games that occur on the current day.
+>
+>In order for pre-season games to show up the date must be specified as show below in the Modifiers section
 
-Without any flags or modifiers this endpoint will NOT return pre-season games that occur on the current day. In order for pre-season games to show up the date must be specified as show below in the Modifiers section
 
-#### Modifiers
+#### Schedule Modifiers
+
 `?expand=schedule.broadcasts` Shows the broadcasts of the game
 
 `?expand=schedule.linescore` Linescore for completed games
@@ -1016,7 +1137,10 @@ Without any flags or modifiers this endpoint will NOT return pre-season games th
 
 `GET https://statsapi.web.nhl.com/api/v1/schedule?teamId=30` Returns Minnesota Wild games for the current day.
 
-```
+<details>
+  <summary>click for example</summary>
+
+```json
 {
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "totalItems" : 1,
@@ -1086,10 +1210,14 @@ Without any flags or modifiers this endpoint will NOT return pre-season games th
   } ]
 }
 ```
-
+<br /></details>
+<br />
 `GET https://statsapi.web.nhl.com/api/v1/schedule?teamId=30&startDate=2018-01-02&endDate=2018-01-02` Returns Minnesota Wild games for January 2, 2018 with attached linescores and broadcasts.
 
-```
+<details>
+  <summary>click for example</summary>
+
+```json
 {
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "totalItems" : 1,
@@ -1274,12 +1402,19 @@ Without any flags or modifiers this endpoint will NOT return pre-season games th
   } ]
 }
 ```
----
 
-### <a name="seasons"></a>Seasons
+<br /></details>
+
+[back to top](#endpoint-tables)
+
+## Seasons
+
 `GET https://statsapi.web.nhl.com/api/v1/seasons` Returns data on each season such as if ties were used, divisions, wildcards or the Olympics were participated in
 
-```
+<details>
+  <summary>click for example</summary>
+
+```json
 {
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2019. All Rights Reserved.",
   "seasons" : [ {
@@ -1296,19 +1431,26 @@ Without any flags or modifiers this endpoint will NOT return pre-season games th
   } ]
 }
 ```
+<br /></details>
 
 `GET https://statsapi.web.nhl.com/api/v1/seasons/20172018` Gets just the data for a specific season
 
-`GET https://statsapi.web.nhl.com/api/v1/seasons/current` Returns the current season,  very useful for code that depends upon this information
+`GET https://statsapi.web.nhl.com/api/v1/seasons/current` Returns the current season, very useful for code that depends upon this information
 
----
+[back to top](#endpoint-tables)
 
-### <a name="standings"></a>Standings
+
+
+# Standings Endpoints
+## Standings
 
 `GET https://statsapi.web.nhl.com/api/v1/standings` Returns ordered standings data
 for each team broken up by divisions
 
-```
+<details>
+  <summary>click for example</summary>
+
+```json
 {
   "team" : {
     "id" : 52,
@@ -1337,13 +1479,18 @@ for each team broken up by divisions
   },
 }
 ```
+<br /></details>
 
 #### Modifiers
+
 `?season=20032004` Standings for a specified season
 
 `?expand=standings.record` Detailed information for each team including home and away records, record in shootouts, last ten games, and split head-to-head records against divisions and conferences
 
-```
+<details>
+  <summary>click for example</summary>
+
+```json
 {
   "records" : {
     "divisionRecords" : [ {
@@ -1401,14 +1548,19 @@ for each team broken up by divisions
   }
 }
 ```
----
+<br /></details>
 
-### <a name="standings-types"></a>Standings Types
+[back to top](#endpoint-tables)
+
+## Standings types
 
 `GET https://statsapi.web.nhl.com/api/v1/standingsTypes` Returns all the standings types
 to be used in order do get a specific standings
 
-```
+<details>
+  <summary>click for example</summary>
+
+```json
 {
 [ {
   "name" : "regularSeason",
@@ -1439,24 +1591,20 @@ to be used in order do get a specific standings
   "description" : "Standings by League"
 } ]
 ```
+<br /></details>
 
+[back to top](#endpoint-tables)
 
----
-
-### <a name="stats-types"></a>Stats Types
-
-`GET https://statsapi.web.nhl.com/api/v1/statTypes` Returns all the stats types
-to be used in order do get a specific kind of player stats
-
----
-
-### <a name="team-stats"></a>Team Stats
+# Teams Endpoints
+## Team Stats
 
 `GET https://statsapi.web.nhl.com/api/v1/teams/5/stats` Returns current season stats and the current season rankings for a specific team
 
 Ex:
+<details>
+  <summary>click for example</summary>
 
-```
+```json
 {
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "stats" : [ {
@@ -1545,132 +1693,142 @@ Ex:
 }
 ```
 
----
+<br /></details>
 
-### <a name="draft"></a>Draft
+[back to top](#endpoint-tables)
 
-`GET https://statsapi.web.nhl.com/api/v1/draft` Get round-by-round data for current year's NHL Entry Draft.
+## Teams
 
-`GET https://statsapi.web.nhl.com/api/v1/draft/YEAR` Takes a YYYY format year and returns draft data
+`GET https://statsapi.web.nhl.com/api/v1/teams` Returns a list of data about
+all teams including their id, venue details, division, conference and franchise information.
 
-```
-{
-  "copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
-  "drafts": [{
-    "draftYear": 2017,
-    "rounds": [{
-      "roundNumber": 1,
-      "round": "1",
-      "picks": [{
-        "year": 2017,
-        "round": "1",
-        "pickOverall": 1,
-        "pickInRound": 1,
-        "team": {
-          "id": 1,
-          "name": "New Jersey Devils",
-          "link": "/api/v1/teams/1"
-        },
-        "prospect": {
-          "id": 65242,
-          "fullName": "Nico Hischier",
-          "link": "/api/v1/draft/prospects/65242"
-        }
-      },
-```
+`GET https://statsapi.web.nhl.com/api/v1/teams/ID` Returns the same information as above just
+for a single team instead of the entire league.
 
-### <a name="prospects"></a>Prospects
+#### Team Modifiers
 
-`GET https://statsapi.web.nhl.com/api/v1/draft/prospects` Get all NHL Entry Draft prospects.
+Add these to the end of the url
 
-`GET https://statsapi.web.nhl.com/api/v1/draft/prospects/ID` Get an NHL Entry Draft prospect.
+`?expand=team.roster` Shows roster of active players for the specified team
+
+`?expand=person.names` Same as above, but gives less info.
+
+`?expand=team.schedule.next` Returns details of the upcoming game for a team
+
+`?expand=team.schedule.previous` Same as above but for the last game played
+
+`?expand=team.stats` Returns the teams stats for the season
+
+`?expand=team.roster&season=20142015` Adding the season identifier shows the roster for that season
+
+`?teamId=4,5,29` Can string team id together to get multiple teams
+
+`?stats=statsSingleSeasonPlayoffs` Specify which stats to get. Not fully sure all of the values
+
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
-  "prospects" : [ {
-    "id" : 53727,
-    "fullName" : "Zbynek Horak",
-    "link" : "/api/v1/draft/prospects/53727",
-    "firstName" : "Zbynek",
-    "lastName" : "Horak",
-    "birthDate" : "1995-03-08",
-    "birthCountry" : "CZE",
-    "height" : "5' 10\"",
-    "weight" : 168,
-    "shootsCatches" : "L",
-    "primaryPosition" : {
-      "code" : "L",
-      "name" : "Left Wing",
-      "type" : "Forward",
-      "abbreviation" : "LW"
+  "teams" : [ {
+    "id" : 1,
+    "name" : "New Jersey Devils",
+    "link" : "/api/v1/teams/1",
+    "venue" : {
+      "name" : "Prudential Center",
+      "link" : "/api/v1/venues/null",
+      "city" : "Newark",
+      "timeZone" : {
+        "id" : "America/New_York",
+        "offset" : -5,
+        "tz" : "EST"
+      }
     },
-    "draftStatus" : "Elig",
-    "prospectCategory" : {
-      "id" : 2,
-      "shortName" : "Euro Skater",
-      "name" : "European Skater"
+    "abbreviation" : "NJD",
+    "teamName" : "Devils",
+    "locationName" : "New Jersey",
+    "firstYearOfPlay" : "1982",
+    "division" : {
+      "id" : 18,
+      "name" : "Metropolitan",
+      "link" : "/api/v1/divisions/18"
     },
-    "amateurTeam" : {
-      "name" : "Znojmo Jr.",
-      "link" : "/api/v1/teams/null"
+    "conference" : {
+      "id" : 6,
+      "name" : "Eastern",
+      "link" : "/api/v1/conferences/6"
     },
-    "amateurLeague" : {
-      "name" : "AUSTRIA-JR.",
-      "link" : "/api/v1/league/null"
+    "franchise" : {
+      "franchiseId" : 23,
+      "teamName" : "Devils",
+      "link" : "/api/v1/franchises/23"
     },
-    "ranks" : { }
-  } ]
-}
+    "shortName" : "New Jersey",
+    "officialSiteUrl" : "http://www.truesince82.com",
+    "franchiseId" : 23,
+    "active" : true
+  }, {
 ```
+<br /></details>
 
-### <a name="awards"></a>Awards
+`GET https://statsapi.web.nhl.com/api/v1/teams/ID/roster` Returns entire roster for a team
+including id value, name, jersey number and position details.
 
-`GET https://statsapi.web.nhl.com/api/v1/awards` Get all NHL Awards.
-
-`GET https://statsapi.web.nhl.com/api/v1/awards/ID` Get an NHL Award.
+<details>
+  <summary>click for example</summary>
 
 ```json
 {
-  "copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
-  "awards": [ {
-    "name": "Stanley Cup",
-    "shortName": "The Cup",
-    "description": "History: The Stanley Cup, the oldest trophy competed for by professional athletes in North America, was donated by Frederick Arthur, Lord Stanley of Preston and son of the Earl of Derby, in 1893. Lord Stanley purchased the trophy for 10 guineas ($50 at that time) for presentation to the amateur hockey champions of Canada. Since 1906, when Canadian teams began to pay their players openly, the Stanley Cup has been the symbol of professional hockey supremacy. It has been contested only by NHL teams since 1926-27 and has been under the exclusive control of the NHL since 1947.",
-    "recipientType": "Team",
-    "history": "It all started on March 18, 1892, at a dinner of the Ottawa Amateur Athletic Association. Lord Kilcoursie, a player on the Ottawa Rebels hockey club from Government House, delivered the following message on behalf of Lord Stanley, the Earl of Preston and Governor General of Canada  -- &quot;I have for some time been thinking that it would be a good thing if there were a challenge cup which should be held from year to year by the champion hockey team in the Dominion (of Canada).  There does not appear to be any such outward sign of a championship at present, and considering the general interest which matches now elicit, and the importance of having the game played fairly and under rules generally recognized, I am willing to give a cup which shall be held from year to year by the winning team.&quot; --  Shortly thereafter, Lord Stanley purchased a silver cup measuring 7.5 inches high by 11.5 inches across for the sum of 10 guineas (approximately $50); appointed two Ottawa gentlemen, Sheriff John Sweetland and Philip D. Ross, as trustees of that cup.  The first winner of the Stanley Cup was the Montreal Amateur Athletic Association (AAA) hockey club, champions of the Amateur Hockey Association of Canada for 1893. Ironically, Lord Stanley never witnessed a championship game nor attended a presentation of his trophy, having returned to his native England in the midst of the 1893 season. Nevertheless, the quest for his trophy has become one of the worlds most prestigious sporting competitions.",
-    "imageUrl": "http://3.cdn.nhle.com/nhl/images/upload/2017/09/Stanley-Cup.jpg",
-    "homePageUrl": "http://www.nhl.com/cup/index.html",
-    "link": "/api/v1/awards/1"
-  }]
-}
+  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
+  "roster" : [ {
+    "person" : {
+      "id" : 8477474,
+      "fullName" : "Madison Bowey",
+      "link" : "/api/v1/people/8477474"
+    },
+    "jerseyNumber" : "22",
+    "position" : {
+      "code" : "D",
+      "name" : "Defenseman",
+      "type" : "Defenseman",
+      "abbreviation" : "D"
+    }
+  },]
+  }
 ```
+<br /></details>
 
-### <a name="venues"></a>Venues
+[back to top](#endpoint-tables)
 
-`GET https://statsapi.web.nhl.com/api/v1/venues` Get all NHL Venues in API database.
+# Miscellaneous Endpoints
 
-`GET https://statsapi.web.nhl.com/api/v1/venues/ID` Get an NHL Venue.
+## Configurations
+`GET https://statsapi.web.nhl.com/api/v1/configurations`
+Returns a huge list of other endpoints, sort of the rosetta stone discovery tying many parts of the API together
 
-```json
-{
-  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2019. All Rights Reserved.",
-  "venues" : [ {
-    "id" : 5064,
-    "name" : "Pepsi Center",
-    "link" : "/api/v1/venues/5064",
-    "appEnabled" : true
-  } ]
-}
-```
----
-
-### <a name="event-types"></a>Event Types
-
+## Event Types
 `GET https://statsapi.web.nhl.com/api/v1/eventTypes`
-
 Shows several event types beyond just hockey games, possibly an artifact left over from being reconfigured to be used by the NHL
 
-### <a name="performer-types"></a>Performer Types
+## Expands
 
+`GET https://statsapi.web.nhl.com/api/v1/expands` Shows all possible input for the expand field
+
+## Languages
+`GET https://statsapi.web.nhl.com/api/v1/languages`
+Shows all possible languages for the API
+
+## Performer types
 `GET https://statsapi.web.nhl.com/api/v1/performerTypes` List of performer types likely tied to venue scheduling information
+
+## Platforms
+`GET https://statsapi.web.nhl.com/api/v1/platforms`
+This seems to allow the API to be tailored to a specific platform, indicating platform specific behavior/apps.
+
+## Stat Types
+
+`GET https://statsapi.web.nhl.com/api/v1/statTypes` Returns all the stats types
+to be used in order do get a specific kind of player stats
+
+[back to top](#endpoint-tables)
