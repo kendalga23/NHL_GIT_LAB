@@ -4,7 +4,6 @@
 
 Thanks to [erunion](https://github.com/erunion)
 
-Base:
 `https://statsapi.web.nhl.com`
 
 # Endpoint Tables
@@ -62,15 +61,18 @@ Base:
 <br />
 
 # League endpoints
+
 ## Awards
 `GET https://statsapi.web.nhl.com/api/v1/awards` Get all NHL Awards.
 
 `GET https://statsapi.web.nhl.com/api/v1/awards/ID` Get an NHL Award.
 
 <details>
-  <summary>click for example</summary>
+   <summary>click for example</summary>
 
 ```json
+// GET https://statsapi.web.nhl.com/api/v1/awards/1
+
 {
   "copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
   "awards": [
@@ -87,11 +89,13 @@ Base:
   ]
 }
 ```
-<br /></details>
 
+</details>
 
+<br />
 
 [back to top](#endpoint-tables)
+
 ## Conferences
 
 `GET https://statsapi.web.nhl.com/api/v1/conferences` Returns conference details
@@ -127,6 +131,7 @@ specific conference, also can look up id 7 for World Cup of Hockey.
 <br /></details>
 
 [back to top](#endpoint-tables)
+
 ## Divisions
 `GET https://statsapi.web.nhl.com/api/v1/divisions` Returns full list of divisions
 and associated data like which conference they belong to, id values and API links.
@@ -160,6 +165,7 @@ single division. This can show old inactive divisions such as 13 Patrick.
 <br /></details>
 
 [back to top](#endpoint-tables)
+
 ## Franchises
 
 `GET https://statsapi.web.nhl.com/api/v1/franchises` Returns a list of franchises
@@ -250,6 +256,7 @@ In order to get additional information the expand modifer can be used such as th
 `?expand=round.series,schedule.game.seriesSummary&season=20182019` This will add in details like the game summary and the season
 
 [back to top](#endpoint-tables)
+
 ## Venues
 
 `GET https://statsapi.web.nhl.com/api/v1/venues` Get all NHL Venues in API database.
@@ -278,6 +285,7 @@ In order to get additional information the expand modifer can be used such as th
 
 
 # Game endpoints
+
 ## Games
 `GET https://statsapi.web.nhl.com/api/v1/game/ID/feed/live` Returns all data about
 a specified game id including play data with on-ice coordinates and post-game
@@ -301,10 +309,12 @@ Returns updates (like new play events, updated stats for boxscore, etc.) for the
 since the given startTimecode. If the startTimecode param is missing, returns an empty array.
 
 [back to top](#endpoint-tables)
+
 ## Game IDs
 The first 4 digits identify the season of the game (ie. 2017 for the 2017-2018 season). The next 2 digits give the type of game, where 01 = preseason, 02 = regular season, 03 = playoffs, 04 = all-star. The final 4 digits identify the specific game number. For regular season and preseason games, this ranges from 0001 to the number of games played. (1271 for seasons with 31 teams (2017 and onwards) and 1230 for seasons with 30 teams). For playoff games, the 2nd digit of the specific number gives the round of the playoffs, the 3rd digit specifies the matchup, and the 4th digit specifies the game (out of 7).
 
 [back to top](#endpoint-tables)
+
 ## Game Status
 
 `GET https://statsapi.web.nhl.com/api/v1/gameStatus`
@@ -312,6 +322,7 @@ The first 4 digits identify the season of the game (ie. 2017 for the 2017-2018 s
 Returns a list of game status values
 
 [back to top](#endpoint-tables)
+
 ## Game Types
 
 `GET https://statsapi.web.nhl.com/api/v1/gameTypes`
@@ -319,6 +330,7 @@ Returns a list of game status values
 Returns list of game types with description and post-season status
 
 [back to top](#endpoint-tables)
+
 ## Play Types
 
 `GET https://statsapi.web.nhl.com/api/v1/playTypes`
@@ -331,6 +343,7 @@ This shows all the possible play types found within the liveData/plays portion o
 <br />
 
 # Player endpoints
+
 ## Draft
 
 `GET https://statsapi.web.nhl.com/api/v1/draft` Get round-by-round data for current year's NHL Entry Draft.
@@ -368,6 +381,7 @@ This shows all the possible play types found within the liveData/plays portion o
 <br /></details>
 
 [back to top](#endpoint-tables)
+
 ## Players
 
 `GET https://statsapi.web.nhl.com/api/v1/people/ID` Gets details for a player, must
@@ -428,8 +442,8 @@ obtains an array of eligible positions in the NHL
 `?stats=statsSingleSeason&season=19801981` Obtains single season statistics
 for a player
 
-_note - stats have changed over the years, the below sample is for Wayne Gretzky
-and does not include things like evenTimeOnIce and other time related stats_
+>note - stats have changed over the years, the below sample is for Wayne Gretzky
+and does not include things like evenTimeOnIce and other time related stats
 <details>
   <summary>click for example</summary>
 
@@ -465,7 +479,7 @@ and does not include things like evenTimeOnIce and other time related stats_
 ```
 <br /></details>
 
-_however here is Alex Ovechkin's 20162017 season stats which include time information_
+> however here is Alex Ovechkin's 20162017 season stats which include time information
 
 <details>
   <summary>click for example</summary>
@@ -521,310 +535,1027 @@ _however here is Alex Ovechkin's 20162017 season stats which include time inform
   <summary>click for example</summary>
 
 ```json
+// https://statsapi.web.nhl.com/api/v1/people/8474141/stats?stats=yearByYear
+// Patrick Kane
+
 {
-  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2019. All Rights Reserved.",
-  "stats" : [ {
-    "type" : {
-      "displayName" : "yearByYear"
-    },
-    "splits" : [ {
-      "season" : "20012002",
-      "stat" : {
-        "timeOnIce" : "00:00",
-        "assists" : 8,
-        "goals" : 18,
-        "pim" : 20,
-        "games" : 19,
-        "powerPlayTimeOnIce" : "00:00",
-        "evenTimeOnIce" : "00:00",
-        "penaltyMinutes" : "20",
-        "faceOffPct" : 0.0,
-        "shortHandedTimeOnIce" : "00:00",
-        "points" : 26,
-        "shifts" : 0
-      },
-      "team" : {
-        "name" : "Dyn'o Moscow 2",
-        "link" : "/api/v1/teams/null"
-      },
-      "league" : {
-        "name" : "Russia-3",
-        "link" : "/api/v1/league/null"
-      },
-      "sequenceNumber" : 1
-    }, {
-      "season" : "20012002",
-      "stat" : {
-        "timeOnIce" : "00:00",
-        "assists" : 4,
-        "goals" : 14,
-        "pim" : 0,
-        "games" : 8,
-        "powerPlayTimeOnIce" : "00:00",
-        "evenTimeOnIce" : "00:00",
-        "penaltyMinutes" : "0",
-        "faceOffPct" : 0.0,
-        "shortHandedTimeOnIce" : "00:00",
-        "points" : 18,
-        "shifts" : 0
-      },
-      "team" : {
-        "id" : 64,
-        "name" : "Russia",
-        "link" : "/api/v1/teams/64"
-      },
-      "league" : {
-        "id" : 147,
-        "name" : "WJ18-A",
-        "link" : "/api/v1/league/147"
-      },
-      "sequenceNumber" : 3
-    },
-
-    ...
-
-    , {
-      "season" : "20042005",
-      "stat" : {
-        "timeOnIce" : "00:00",
-        "assists" : 3,
-        "goals" : 5,
-        "pim" : 4,
-        "games" : 8,
-        "powerPlayTimeOnIce" : "00:00",
-        "evenTimeOnIce" : "00:00",
-        "penaltyMinutes" : "4",
-        "faceOffPct" : 0.0,
-        "shortHandedTimeOnIce" : "00:00",
-        "points" : 8,
-        "shifts" : 0
-      },
-      "team" : {
-        "id" : 64,
-        "name" : "Russia",
-        "link" : "/api/v1/teams/64"
-      },
-      "league" : {
-        "id" : 147,
-        "name" : "WC-A",
-        "link" : "/api/v1/league/147"
-      },
-      "sequenceNumber" : 4
-    }, {
-      "season" : "20052006",
-      "stat" : {
-        "timeOnIce" : "1751:22",
-        "assists" : 54,
-        "goals" : 52,
-        "pim" : 52,
-        "shots" : 425,
-        "games" : 81,
-        "hits" : 172,
-        "powerPlayGoals" : 21,
-        "powerPlayPoints" : 52,
-        "powerPlayTimeOnIce" : "544:33",
-        "evenTimeOnIce" : "1140:57",
-        "penaltyMinutes" : "52",
-        "faceOffPct" : 12.5,
-        "shotPct" : 12.2,
-        "gameWinningGoals" : 5,
-        "overTimeGoals" : 2,
-        "shortHandedGoals" : 3,
-        "shortHandedPoints" : 3,
-        "shortHandedTimeOnIce" : "65:52",
-        "blocked" : 20,
-        "plusMinus" : 2,
-        "points" : 106,
-        "shifts" : 1959
-      },
-      "team" : {
-        "id" : 15,
-        "name" : "Washington Capitals",
-        "link" : "/api/v1/teams/15"
-      },
-      "league" : {
-        "id" : 133,
-        "name" : "National Hockey League",
-        "link" : "/api/v1/league/133"
-      },
-      "sequenceNumber" : 1
-    }, {
-      "season" : "20052006",
-      "stat" : {
-        "timeOnIce" : "00:00",
-        "assists" : 0,
-        "goals" : 5,
-        "pim" : 8,
-        "games" : 8,
-        "powerPlayTimeOnIce" : "00:00",
-        "evenTimeOnIce" : "00:00",
-        "penaltyMinutes" : "8",
-        "faceOffPct" : 0.0,
-        "shortHandedTimeOnIce" : "00:00",
-        "points" : 5,
-        "shifts" : 0
-      },
-      "team" : {
-        "id" : 64,
-        "name" : "Russia",
-        "link" : "/api/v1/teams/64"
-      },
-      "league" : {
-        "id" : 147,
-        "name" : "Olympics",
-        "link" : "/api/v1/league/147"
-      },
-      "sequenceNumber" : 3
-    }, {
-      "season" : "20052006",
-      "stat" : {
-        "timeOnIce" : "00:00",
-        "assists" : 3,
-        "goals" : 6,
-        "pim" : 6,
-        "games" : 7,
-        "powerPlayTimeOnIce" : "00:00",
-        "evenTimeOnIce" : "00:00",
-        "penaltyMinutes" : "6",
-        "faceOffPct" : 0.0,
-        "shortHandedTimeOnIce" : "00:00",
-        "points" : 9,
-        "shifts" : 0
-      },
-      "team" : {
-        "id" : 64,
-        "name" : "Russia",
-        "link" : "/api/v1/teams/64"
-      },
-      "league" : {
-        "id" : 147,
-        "name" : "WC-A",
-        "link" : "/api/v1/league/147"
-      },
-      "sequenceNumber" : 5
-    }, {
-      "season" : "20062007",
-      "stat" : {
-        "timeOnIce" : "1753:50",
-        "assists" : 46,
-        "goals" : 46,
-        "pim" : 52,
-        "shots" : 392,
-        "games" : 82,
-        "hits" : 184,
-        "powerPlayGoals" : 16,
-        "powerPlayPoints" : 37,
-        "powerPlayTimeOnIce" : "453:26",
-        "evenTimeOnIce" : "1284:04",
-        "penaltyMinutes" : "52",
-        "faceOffPct" : 47.06,
-        "shotPct" : 11.7,
-        "gameWinningGoals" : 8,
-        "overTimeGoals" : 1,
-        "shortHandedGoals" : 0,
-        "shortHandedPoints" : 0,
-        "shortHandedTimeOnIce" : "16:20",
-        "blocked" : 44,
-        "plusMinus" : -19,
-        "points" : 92,
-        "shifts" : 1985
-      },
-      "team" : {
-        "id" : 15,
-        "name" : "Washington Capitals",
-        "link" : "/api/v1/teams/15"
-      },
-      "league" : {
-        "id" : 133,
-        "name" : "National Hockey League",
-        "link" : "/api/v1/league/133"
-      },
-      "sequenceNumber" : 1
-    }, {
-      "season" : "20062007",
-      "stat" : {
-        "assists" : 2,
-        "goals" : 1,
-        "pim" : 29,
-        "games" : 8,
-        "penaltyMinutes" : "29",
-        "points" : 3
-      },
-      "team" : {
-        "id" : 64,
-        "name" : "Russia",
-        "link" : "/api/v1/teams/64"
-      },
-      "league" : {
-        "id" : 147,
-        "name" : "WC-A",
-        "link" : "/api/v1/league/147"
-      },
-      "sequenceNumber" : 3
-    }
-
-    ...
-
-    {
-      "season" : "20182019",
-      "stat" : {
-        "timeOnIce" : "1694:37",
-        "assists" : 38,
-        "goals" : 51,
-        "pim" : 40,
-        "shots" : 338,
-        "games" : 81,
-        "hits" : 223,
-        "powerPlayGoals" : 18,
-        "powerPlayPoints" : 28,
-        "powerPlayTimeOnIce" : "357:21",
-        "evenTimeOnIce" : "1336:39",
-        "penaltyMinutes" : "40",
-        "faceOffPct" : 20.0,
-        "shotPct" : 15.1,
-        "gameWinningGoals" : 5,
-        "overTimeGoals" : 0,
-        "shortHandedGoals" : 0,
-        "shortHandedPoints" : 0,
-        "shortHandedTimeOnIce" : "00:37",
-        "blocked" : 41,
-        "plusMinus" : 7,
-        "points" : 89,
-        "shifts" : 1682
-      },
-      "team" : {
-        "id" : 15,
-        "name" : "Washington Capitals",
-        "link" : "/api/v1/teams/15"
-      },
-      "league" : {
-        "id" : 133,
-        "name" : "National Hockey League",
-        "link" : "/api/v1/league/133"
-      },
-      "sequenceNumber" : 1
-    }, {
-      "season" : "20182019",
-      "stat" : {
-        "assists" : 1,
-        "goals" : 2,
-        "pim" : 2,
-        "games" : 10,
-        "penaltyMinutes" : "2",
-        "plusMinus" : 6,
-        "points" : 3
-      },
-      "team" : {
-        "name" : "Russia",
-        "link" : "/api/v1/teams/null"
-      },
-      "league" : {
-        "name" : "WC",
-        "link" : "/api/v1/league/null"
-      },
-      "sequenceNumber" : 16551
-    } ]
-  } ]
+    "copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2023. All Rights Reserved.",
+    "stats": [
+        {
+            "type": {
+                "displayName": "yearByYear",
+                "gameType": null
+            },
+            "splits": [
+                {
+                    "season": "20032004",
+                    "stat": {
+                        "assists": 77,
+                        "goals": 83,
+                        "games": 70,
+                        "points": 160
+                    },
+                    "team": {
+                        "name": "Det. Honeybaked",
+                        "link": "/api/v1/teams/null"
+                    },
+                    "league": {
+                        "name": "MWEHL",
+                        "link": "/api/v1/league/null"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20042005",
+                    "stat": {
+                        "assists": 17,
+                        "goals": 16,
+                        "pim": 8,
+                        "games": 23,
+                        "penaltyMinutes": "8",
+                        "points": 33
+                    },
+                    "team": {
+                        "name": "USNTDP",
+                        "link": "/api/v1/teams/null"
+                    },
+                    "league": {
+                        "name": "U-17",
+                        "link": "/api/v1/league/null"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20042005",
+                    "stat": {
+                        "assists": 21,
+                        "goals": 16,
+                        "pim": 8,
+                        "games": 40,
+                        "powerPlayGoals": 5,
+                        "penaltyMinutes": "8",
+                        "gameWinningGoals": 1,
+                        "shortHandedGoals": 0,
+                        "plusMinus": 0,
+                        "points": 37
+                    },
+                    "team": {
+                        "name": "USNTDP",
+                        "link": "/api/v1/teams/null"
+                    },
+                    "league": {
+                        "id": 211,
+                        "name": "NAHL",
+                        "link": "/api/v1/league/211"
+                    },
+                    "sequenceNumber": 2
+                },
+                {
+                    "season": "20052006",
+                    "stat": {
+                        "assists": 33,
+                        "goals": 35,
+                        "pim": 10,
+                        "games": 43,
+                        "penaltyMinutes": "10",
+                        "points": 68
+                    },
+                    "team": {
+                        "name": "USNTDP",
+                        "link": "/api/v1/teams/null"
+                    },
+                    "league": {
+                        "name": "U-18",
+                        "link": "/api/v1/league/null"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20052006",
+                    "stat": {
+                        "assists": 17,
+                        "goals": 17,
+                        "pim": 12,
+                        "games": 15,
+                        "powerPlayGoals": 7,
+                        "penaltyMinutes": "12",
+                        "gameWinningGoals": 2,
+                        "shortHandedGoals": 1,
+                        "points": 34
+                    },
+                    "team": {
+                        "name": "USNTDP",
+                        "link": "/api/v1/teams/null"
+                    },
+                    "league": {
+                        "id": 211,
+                        "name": "NAHL",
+                        "link": "/api/v1/league/211"
+                    },
+                    "sequenceNumber": 2
+                },
+                {
+                    "season": "20052006",
+                    "stat": {
+                        "assists": 5,
+                        "goals": 7,
+                        "pim": 2,
+                        "games": 6,
+                        "penaltyMinutes": "2",
+                        "faceOffPct": 0.0,
+                        "points": 12
+                    },
+                    "team": {
+                        "id": 67,
+                        "name": "United States",
+                        "link": "/api/v1/teams/67"
+                    },
+                    "league": {
+                        "id": 147,
+                        "name": "WJ18-A",
+                        "link": "/api/v1/league/147"
+                    },
+                    "sequenceNumber": 3
+                },
+                {
+                    "season": "20062007",
+                    "stat": {
+                        "assists": 83,
+                        "goals": 62,
+                        "pim": 52,
+                        "games": 58,
+                        "powerPlayGoals": 22,
+                        "penaltyMinutes": "52",
+                        "shortHandedGoals": 4,
+                        "plusMinus": 42,
+                        "points": 145
+                    },
+                    "team": {
+                        "id": 1876,
+                        "name": "London",
+                        "link": "/api/v1/teams/1876"
+                    },
+                    "league": {
+                        "id": 141,
+                        "name": "OHL",
+                        "link": "/api/v1/league/141"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20062007",
+                    "stat": {
+                        "assists": 4,
+                        "goals": 5,
+                        "pim": 42,
+                        "games": 7,
+                        "powerPlayGoals": 0,
+                        "penaltyMinutes": "42",
+                        "shortHandedGoals": 0,
+                        "plusMinus": 2,
+                        "points": 9
+                    },
+                    "team": {
+                        "id": 67,
+                        "name": "United States",
+                        "link": "/api/v1/teams/67"
+                    },
+                    "league": {
+                        "id": 147,
+                        "name": "WJC-A",
+                        "link": "/api/v1/league/147"
+                    },
+                    "sequenceNumber": 2
+                },
+                {
+                    "season": "20072008",
+                    "stat": {
+                        "timeOnIce": "1505:59",
+                        "assists": 51,
+                        "goals": 21,
+                        "pim": 52,
+                        "shots": 191,
+                        "games": 82,
+                        "hits": 16,
+                        "powerPlayGoals": 7,
+                        "powerPlayPoints": 28,
+                        "powerPlayTimeOnIce": "323:30",
+                        "evenTimeOnIce": "1174:10",
+                        "penaltyMinutes": "52",
+                        "faceOffPct": 61.54,
+                        "shotPct": 10.99,
+                        "gameWinningGoals": 4,
+                        "overTimeGoals": 1,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "08:19",
+                        "blocked": 7,
+                        "plusMinus": -5,
+                        "points": 72,
+                        "shifts": 1838
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20072008",
+                    "stat": {
+                        "timeOnIce": "00:00",
+                        "assists": 7,
+                        "goals": 3,
+                        "pim": 0,
+                        "games": 7,
+                        "powerPlayTimeOnIce": "00:00",
+                        "evenTimeOnIce": "00:00",
+                        "penaltyMinutes": "0",
+                        "faceOffPct": 0.0,
+                        "shortHandedTimeOnIce": "00:00",
+                        "points": 10,
+                        "shifts": 0
+                    },
+                    "team": {
+                        "id": 67,
+                        "name": "United States",
+                        "link": "/api/v1/teams/67"
+                    },
+                    "league": {
+                        "id": 147,
+                        "name": "WC-A",
+                        "link": "/api/v1/league/147"
+                    },
+                    "sequenceNumber": 3
+                },
+                {
+                    "season": "20082009",
+                    "stat": {
+                        "timeOnIce": "1492:40",
+                        "assists": 45,
+                        "goals": 25,
+                        "pim": 42,
+                        "shots": 254,
+                        "games": 80,
+                        "hits": 19,
+                        "powerPlayGoals": 13,
+                        "powerPlayPoints": 35,
+                        "powerPlayTimeOnIce": "334:23",
+                        "evenTimeOnIce": "1154:03",
+                        "penaltyMinutes": "42",
+                        "faceOffPct": 41.94,
+                        "shotPct": 9.84,
+                        "gameWinningGoals": 4,
+                        "overTimeGoals": 0,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "04:14",
+                        "blocked": 9,
+                        "plusMinus": -2,
+                        "points": 70,
+                        "shifts": 1867
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20092010",
+                    "stat": {
+                        "timeOnIce": "1574:06",
+                        "assists": 58,
+                        "goals": 30,
+                        "pim": 20,
+                        "shots": 261,
+                        "games": 82,
+                        "hits": 17,
+                        "powerPlayGoals": 9,
+                        "powerPlayPoints": 29,
+                        "powerPlayTimeOnIce": "265:32",
+                        "evenTimeOnIce": "1297:58",
+                        "penaltyMinutes": "20",
+                        "faceOffPct": 40.91,
+                        "shotPct": 11.49,
+                        "gameWinningGoals": 6,
+                        "overTimeGoals": 0,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 1,
+                        "shortHandedTimeOnIce": "10:36",
+                        "blocked": 17,
+                        "plusMinus": 16,
+                        "points": 88,
+                        "shifts": 1908
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20092010",
+                    "stat": {
+                        "assists": 2,
+                        "goals": 3,
+                        "pim": 2,
+                        "games": 6,
+                        "penaltyMinutes": "2",
+                        "faceOffPct": 0.0,
+                        "points": 5
+                    },
+                    "team": {
+                        "id": 67,
+                        "name": "U.S.A.",
+                        "link": "/api/v1/teams/67"
+                    },
+                    "league": {
+                        "id": 147,
+                        "name": "Olympics",
+                        "link": "/api/v1/league/147"
+                    },
+                    "sequenceNumber": 3
+                },
+                {
+                    "season": "20102011",
+                    "stat": {
+                        "timeOnIce": "1407:47",
+                        "assists": 46,
+                        "goals": 27,
+                        "pim": 28,
+                        "shots": 216,
+                        "games": 73,
+                        "hits": 17,
+                        "powerPlayGoals": 5,
+                        "powerPlayPoints": 24,
+                        "powerPlayTimeOnIce": "236:48",
+                        "evenTimeOnIce": "1167:10",
+                        "penaltyMinutes": "28",
+                        "faceOffPct": 14.29,
+                        "shotPct": 12.5,
+                        "gameWinningGoals": 2,
+                        "overTimeGoals": 0,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "03:49",
+                        "blocked": 17,
+                        "plusMinus": 7,
+                        "points": 73,
+                        "shifts": 1749
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20112012",
+                    "stat": {
+                        "timeOnIce": "1656:12",
+                        "assists": 43,
+                        "goals": 23,
+                        "pim": 40,
+                        "shots": 253,
+                        "games": 82,
+                        "hits": 19,
+                        "powerPlayGoals": 4,
+                        "powerPlayPoints": 12,
+                        "powerPlayTimeOnIce": "284:06",
+                        "evenTimeOnIce": "1366:03",
+                        "penaltyMinutes": "40",
+                        "faceOffPct": 42.18,
+                        "shotPct": 9.09,
+                        "gameWinningGoals": 5,
+                        "overTimeGoals": 0,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "06:03",
+                        "blocked": 27,
+                        "plusMinus": 7,
+                        "points": 66,
+                        "shifts": 2001
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20122013",
+                    "stat": {
+                        "timeOnIce": "942:38",
+                        "assists": 32,
+                        "goals": 23,
+                        "pim": 8,
+                        "shots": 138,
+                        "games": 47,
+                        "hits": 11,
+                        "powerPlayGoals": 8,
+                        "powerPlayPoints": 17,
+                        "powerPlayTimeOnIce": "139:05",
+                        "evenTimeOnIce": "803:09",
+                        "penaltyMinutes": "8",
+                        "faceOffPct": 20.0,
+                        "shotPct": 16.67,
+                        "gameWinningGoals": 3,
+                        "overTimeGoals": 0,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "00:24",
+                        "blocked": 9,
+                        "plusMinus": 11,
+                        "points": 55,
+                        "shifts": 1088
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20122013",
+                    "stat": {
+                        "assists": 10,
+                        "goals": 13,
+                        "pim": 6,
+                        "games": 20,
+                        "penaltyMinutes": "6",
+                        "points": 23
+                    },
+                    "team": {
+                        "id": 5816,
+                        "name": "Biel",
+                        "link": "/api/v1/teams/5816"
+                    },
+                    "league": {
+                        "id": 293,
+                        "name": "Swiss",
+                        "link": "/api/v1/league/293"
+                    },
+                    "sequenceNumber": 2
+                },
+                {
+                    "season": "20132014",
+                    "stat": {
+                        "timeOnIce": "1353:06",
+                        "assists": 40,
+                        "goals": 29,
+                        "pim": 22,
+                        "shots": 227,
+                        "games": 69,
+                        "hits": 16,
+                        "powerPlayGoals": 10,
+                        "powerPlayPoints": 25,
+                        "powerPlayTimeOnIce": "228:07",
+                        "evenTimeOnIce": "1124:01",
+                        "penaltyMinutes": "22",
+                        "faceOffPct": 50.0,
+                        "shotPct": 12.78,
+                        "gameWinningGoals": 6,
+                        "overTimeGoals": 0,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "00:58",
+                        "blocked": 15,
+                        "plusMinus": 7,
+                        "points": 69,
+                        "shifts": 1578
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20132014",
+                    "stat": {
+                        "assists": 4,
+                        "goals": 0,
+                        "pim": 6,
+                        "shots": 19,
+                        "games": 6,
+                        "powerPlayGoals": 0,
+                        "penaltyMinutes": "6",
+                        "gameWinningGoals": 0,
+                        "shortHandedGoals": 0,
+                        "plusMinus": 2,
+                        "points": 4
+                    },
+                    "team": {
+                        "id": 67,
+                        "name": "U.S.A.",
+                        "link": "/api/v1/teams/67"
+                    },
+                    "league": {
+                        "id": 147,
+                        "name": "Olympics",
+                        "link": "/api/v1/league/147"
+                    },
+                    "sequenceNumber": 2
+                },
+                {
+                    "season": "20142015",
+                    "stat": {
+                        "timeOnIce": "1210:54",
+                        "assists": 37,
+                        "goals": 27,
+                        "pim": 10,
+                        "shots": 186,
+                        "games": 61,
+                        "hits": 22,
+                        "powerPlayGoals": 6,
+                        "powerPlayPoints": 22,
+                        "powerPlayTimeOnIce": "224:20",
+                        "evenTimeOnIce": "984:07",
+                        "penaltyMinutes": "10",
+                        "faceOffPct": 42.86,
+                        "shotPct": 14.52,
+                        "gameWinningGoals": 5,
+                        "overTimeGoals": 0,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "02:27",
+                        "blocked": 14,
+                        "plusMinus": 10,
+                        "points": 64,
+                        "shifts": 1398
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20152016",
+                    "stat": {
+                        "timeOnIce": "1673:39",
+                        "assists": 60,
+                        "goals": 46,
+                        "pim": 30,
+                        "shots": 287,
+                        "games": 82,
+                        "hits": 37,
+                        "powerPlayGoals": 17,
+                        "powerPlayPoints": 37,
+                        "powerPlayTimeOnIce": "256:30",
+                        "evenTimeOnIce": "1413:30",
+                        "penaltyMinutes": "30",
+                        "faceOffPct": 21.57,
+                        "shotPct": 16.03,
+                        "gameWinningGoals": 9,
+                        "overTimeGoals": 1,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "03:39",
+                        "blocked": 21,
+                        "plusMinus": 17,
+                        "points": 106,
+                        "shifts": 1967
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20162017",
+                    "stat": {
+                        "timeOnIce": "1754:23",
+                        "assists": 55,
+                        "goals": 34,
+                        "pim": 32,
+                        "shots": 292,
+                        "games": 82,
+                        "hits": 28,
+                        "powerPlayGoals": 7,
+                        "powerPlayPoints": 23,
+                        "powerPlayTimeOnIce": "279:02",
+                        "evenTimeOnIce": "1469:07",
+                        "penaltyMinutes": "32",
+                        "faceOffPct": 13.73,
+                        "shotPct": 11.64,
+                        "gameWinningGoals": 5,
+                        "overTimeGoals": 1,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "06:14",
+                        "blocked": 15,
+                        "plusMinus": 11,
+                        "points": 89,
+                        "shifts": 1910
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20162017",
+                    "stat": {
+                        "assists": 2,
+                        "goals": 0,
+                        "pim": 0,
+                        "games": 3,
+                        "penaltyMinutes": "0",
+                        "plusMinus": -4,
+                        "points": 2
+                    },
+                    "team": {
+                        "name": "USA",
+                        "link": "/api/v1/teams/null"
+                    },
+                    "league": {
+                        "name": "WCup",
+                        "link": "/api/v1/league/null"
+                    },
+                    "sequenceNumber": 17286
+                },
+                {
+                    "season": "20172018",
+                    "stat": {
+                        "timeOnIce": "1655:18",
+                        "assists": 49,
+                        "goals": 27,
+                        "pim": 32,
+                        "shots": 285,
+                        "games": 82,
+                        "hits": 18,
+                        "powerPlayGoals": 5,
+                        "powerPlayPoints": 22,
+                        "powerPlayTimeOnIce": "279:27",
+                        "evenTimeOnIce": "1369:52",
+                        "penaltyMinutes": "32",
+                        "faceOffPct": 38.89,
+                        "shotPct": 9.47,
+                        "gameWinningGoals": 4,
+                        "overTimeGoals": 2,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "05:59",
+                        "blocked": 14,
+                        "plusMinus": -20,
+                        "points": 76,
+                        "shifts": 1872
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20172018",
+                    "stat": {
+                        "assists": 12,
+                        "goals": 8,
+                        "pim": 0,
+                        "games": 10,
+                        "penaltyMinutes": "0",
+                        "plusMinus": -2,
+                        "points": 20
+                    },
+                    "team": {
+                        "name": "USA",
+                        "link": "/api/v1/teams/null"
+                    },
+                    "league": {
+                        "name": "WC",
+                        "link": "/api/v1/league/null"
+                    },
+                    "sequenceNumber": 17215
+                },
+                {
+                    "season": "20182019",
+                    "stat": {
+                        "timeOnIce": "1821:37",
+                        "assists": 66,
+                        "goals": 44,
+                        "pim": 22,
+                        "shots": 341,
+                        "games": 81,
+                        "hits": 21,
+                        "powerPlayGoals": 9,
+                        "powerPlayPoints": 30,
+                        "powerPlayTimeOnIce": "300:43",
+                        "evenTimeOnIce": "1516:46",
+                        "penaltyMinutes": "22",
+                        "faceOffPct": 20.0,
+                        "shotPct": 12.9,
+                        "gameWinningGoals": 7,
+                        "overTimeGoals": 3,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "04:08",
+                        "blocked": 18,
+                        "plusMinus": 2,
+                        "points": 110,
+                        "shifts": 1912
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20182019",
+                    "stat": {
+                        "assists": 10,
+                        "goals": 2,
+                        "pim": 4,
+                        "games": 8,
+                        "penaltyMinutes": "4",
+                        "plusMinus": 0,
+                        "points": 12
+                    },
+                    "team": {
+                        "name": "USA",
+                        "link": "/api/v1/teams/null"
+                    },
+                    "league": {
+                        "name": "WC",
+                        "link": "/api/v1/league/null"
+                    },
+                    "sequenceNumber": 17215
+                },
+                {
+                    "season": "20192020",
+                    "stat": {
+                        "timeOnIce": "1493:51",
+                        "assists": 51,
+                        "goals": 33,
+                        "pim": 40,
+                        "shots": 275,
+                        "games": 70,
+                        "hits": 24,
+                        "powerPlayGoals": 8,
+                        "powerPlayPoints": 23,
+                        "powerPlayTimeOnIce": "259:35",
+                        "evenTimeOnIce": "1232:01",
+                        "penaltyMinutes": "40",
+                        "faceOffPct": 25.0,
+                        "shotPct": 12.0,
+                        "gameWinningGoals": 2,
+                        "overTimeGoals": 1,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "02:15",
+                        "blocked": 19,
+                        "plusMinus": 8,
+                        "points": 84,
+                        "shifts": 1558
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20202021",
+                    "stat": {
+                        "timeOnIce": "1244:52",
+                        "assists": 51,
+                        "goals": 15,
+                        "pim": 14,
+                        "shots": 191,
+                        "games": 56,
+                        "hits": 13,
+                        "powerPlayGoals": 3,
+                        "powerPlayPoints": 22,
+                        "powerPlayTimeOnIce": "219:37",
+                        "evenTimeOnIce": "1022:40",
+                        "penaltyMinutes": "14",
+                        "faceOffPct": 28.57,
+                        "shotPct": 7.9,
+                        "gameWinningGoals": 3,
+                        "overTimeGoals": 0,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "02:35",
+                        "blocked": 15,
+                        "plusMinus": -7,
+                        "points": 66,
+                        "shifts": 1246
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20212022",
+                    "stat": {
+                        "timeOnIce": "1702:13",
+                        "assists": 66,
+                        "goals": 26,
+                        "pim": 18,
+                        "shots": 287,
+                        "games": 78,
+                        "hits": 11,
+                        "powerPlayGoals": 9,
+                        "powerPlayPoints": 31,
+                        "powerPlayTimeOnIce": "295:26",
+                        "evenTimeOnIce": "1404:41",
+                        "penaltyMinutes": "18",
+                        "faceOffPct": 50.0,
+                        "shotPct": 9.1,
+                        "gameWinningGoals": 2,
+                        "overTimeGoals": 0,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "02:06",
+                        "blocked": 26,
+                        "plusMinus": -19,
+                        "points": 92,
+                        "shifts": 1798
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20222023",
+                    "stat": {
+                        "timeOnIce": "1077:15",
+                        "assists": 29,
+                        "goals": 16,
+                        "pim": 10,
+                        "shots": 182,
+                        "games": 54,
+                        "hits": 10,
+                        "powerPlayGoals": 2,
+                        "powerPlayPoints": 18,
+                        "powerPlayTimeOnIce": "194:58",
+                        "evenTimeOnIce": "881:45",
+                        "penaltyMinutes": "10",
+                        "faceOffPct": 100.0,
+                        "shotPct": 8.79,
+                        "gameWinningGoals": 0,
+                        "overTimeGoals": 0,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "00:32",
+                        "blocked": 10,
+                        "plusMinus": -23,
+                        "points": 45,
+                        "shifts": 1115
+                    },
+                    "team": {
+                        "id": 16,
+                        "name": "Chicago Blackhawks",
+                        "link": "/api/v1/teams/16"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "season": "20222023",
+                    "stat": {
+                        "timeOnIce": "332:17",
+                        "assists": 7,
+                        "goals": 5,
+                        "pim": 6,
+                        "shots": 45,
+                        "games": 19,
+                        "hits": 3,
+                        "powerPlayGoals": 2,
+                        "powerPlayPoints": 4,
+                        "powerPlayTimeOnIce": "54:40",
+                        "evenTimeOnIce": "277:22",
+                        "penaltyMinutes": "6",
+                        "faceOffPct": 0.0,
+                        "shotPct": 11.11,
+                        "gameWinningGoals": 1,
+                        "overTimeGoals": 0,
+                        "shortHandedGoals": 0,
+                        "shortHandedPoints": 0,
+                        "shortHandedTimeOnIce": "00:15",
+                        "blocked": 9,
+                        "plusMinus": 1,
+                        "points": 12,
+                        "shifts": 353
+                    },
+                    "team": {
+                        "id": 3,
+                        "name": "New York Rangers",
+                        "link": "/api/v1/teams/3"
+                    },
+                    "league": {
+                        "id": 133,
+                        "name": "National Hockey League",
+                        "link": "/api/v1/league/133"
+                    },
+                    "sequenceNumber": 2
+                }
+            ]
+        }
+    ]
 }
 ```
 <br /></details>
@@ -1061,6 +1792,9 @@ in-progress season and shows **projected** totals based on current onPaceRegular
 
 <br /></details>
 
+<details>
+<summary>click for example</summary>
+
 ```json
 {
   "copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
@@ -1101,9 +1835,12 @@ in-progress season and shows **projected** totals based on current onPaceRegular
   ]
 }
 ```
-<br /></details>
+<br />
+
+</details>
 
 [back to top](#endpoint-tables)
+
 # Schedule endpoints
 
 ## Schedule
@@ -1442,6 +2179,7 @@ in-progress season and shows **projected** totals based on current onPaceRegular
 
 
 # Standings Endpoints
+
 ## Standings
 
 `GET https://statsapi.web.nhl.com/api/v1/standings` Returns ordered standings data
@@ -1596,6 +2334,7 @@ to be used in order do get a specific standings
 [back to top](#endpoint-tables)
 
 # Teams Endpoints
+
 ## Team Stats
 
 `GET https://statsapi.web.nhl.com/api/v1/teams/5/stats` Returns current season stats and the current season rankings for a specific team
