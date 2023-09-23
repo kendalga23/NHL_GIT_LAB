@@ -11,6 +11,7 @@ The NHL has surprised us all with a new API, so that means a new file to track a
 `GET https://api-web.nhle.com/v1/schedule/2023-09-23` | Gets schedule of games for specified date
 <details>
     <summary>click for example</summary>
+
 ```json
 // GET https://api-web.nhle.com/v1/schedule/2018-09-01
 
