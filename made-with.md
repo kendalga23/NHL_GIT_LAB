@@ -61,3 +61,9 @@ Description: A (WIP) GraphQL server wrapping the documented endpoints of this pr
 Code: https://github.com/Rblock919/open-hockey-api
 
 Author: [rblock919](https://github.com/Rblock919)
+
+## rotorink 
+
+Description: Social Media Hockey application built with Nuxt 3 and Prisma complete with user authentication. 
+
+Code: https://github.com/edwardz8/nuxt3-zero 
