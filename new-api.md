@@ -632,6 +632,75 @@ The NHL has surprised us all with a new API, so that means a new file to track a
 
 `GET https://api-web.nhle.com/v1/player/PLAYER_ID/landing` | Player specific stats
 
+`GET https://api.nhle.com/stats/rest/en/` | Base stats URL
+
+`/config` | Stats configuration options. For each stat option and report type, this endpoint describes the default configuration of the columns, filters and sorting. <br>
+`/franchise?` | Franchise info <br>
+`/country?` | Country info <br>
+`/season?` | Season info <br>
+`/draft?` | Draft info <br>	
+
+## Skater Stats
+
+`GET https://api.nhle.com/stats/rest/en/skater` | Base end point
+
+### Report types: <br>
+ `/summary?`<br>
+ `/bios?`<br>
+ `/faceoffpercentages?`<br>
+ `/faceoffwins?`<br>
+ `/goalsForAgainst?`<br>
+ `/realtime?`<br>
+ `/penalties?`<br>
+ `/penaltykill?`<br>
+ `/penaltyShots?`<br>
+ `/powerplay?`<br>
+ `/puckPossessions?`<br>
+ `/summaryshooting?`<br>
+ `/percentages?`<br>
+ `/scoringRates?`<br>
+ `/scoringpergame?`<br>
+ `/shootout?`<br>
+ `/shottype?`<br>
+ `/timeonice?`<br>
+## Goalie Stats
+
+`GET https://api.nhle.com/stats/rest/en/goalie` | Base end point
+### Report types: <br>
+ `/summary?`<br>
+ `/advanced?`<br>
+ `/bios?`<br>
+ `/daysrest?`<br>
+ `/penaltyShots?`<br>
+ `/savesByStrength?`<br>
+ `/shootout?`<br>
+ `/startedVsRelieved?`<br>
+
+## Team Stats
+`GET https://api.nhle.com/stats/rest/en/team` | Base end point
+### Report types: <br>
+ `/summary?`<br>
+ `/faceoffpercentages?`<br>
+ `/daysbetweengames?`<br>
+ `/faceoffwins?`<br>
+ `/goalsagainstbystrength?`<br>
+ `/goalsbyperiod?`<br>
+ `/goalsforbystrength?`<br>
+ `/leadingtrailing?`<br>
+ `/realtime?`<br>
+ `/outshootoutshotby?`<br>
+ `/penalties?`<br>
+ `/penaltykill?`<br>
+ `/penaltykilltime?`<br>
+ `/powerplay?`<br>
+ `/powerplaytime?`<br>
+ `/summaryshooting?`<br>
+ `/percentages?`<br>
+ `/scoretrailfirst?`<br>
+ `/shootout?`<br>
+ `/shottype?`<br>
+ `/goalgames?`<br>
+
 # Rosters
 
 `GET https://api-web.nhle.com/v1/roster/TEAM_ABBR/now` | ADD description

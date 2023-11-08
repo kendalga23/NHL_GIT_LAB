@@ -22,6 +22,7 @@ documentation including examples in multiple common langages (such as using Swag
 |[misc.md](misc.md)|Random things the NHL API uses or is somehow related to|
 |[records-api.md](records-api.md)|Documentation on the API for records.nhl.com|
 |[stats-api.md](stats-api.md)|The one, the only NHL API (stats) documentation!|
+|[new-api.md](new-api.md)|New 2023 NHL API (stats) documentation|
 
 
 ## Contributing
