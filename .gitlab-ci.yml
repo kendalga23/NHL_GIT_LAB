@@ -3,8 +3,8 @@ image: node:latest
 pages:
   stage: deploy
   script:
-  - npm install -g redocly/cli
-  - redocly build-docs swagger/openapi.yaml --output=public/index.html
+  - npx @redocly/cli build-docs swagger/openapi.yaml --output=public/index.html
+  #- redocly build-docs swagger/openapi.yaml --output=public/index.html
   artifacts:
     paths:
     - public
