@@ -25545,6 +25545,335 @@
         "security": []
       }
     },
+    "/v1/gamecenter/2023020126/play-by-play": {
+      "get": {
+        "summary": "/v1/gamecenter/2023020126/play-by-play",
+        "description": "**Host**: http://api-web.nhle.com",
+        "operationId": "getGamePlayByPlayById",
+        "parameters": [
+          {
+            "name": "game_id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the game to retrieve",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Play by play of specific game",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "season": {
+                      "type": "integer"
+                    },
+                    "gameType": {
+                      "type": "integer"
+                    },
+                    "neutralSite": {
+                      "type": "boolean"
+                    },
+                    "startTimeUTC": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "easternUTCOffset": {
+                      "type": "string"
+                    },
+                    "venueUTCOffset": {
+                      "type": "string"
+                    },
+                    "venueTimezone": {
+                      "type": "string"
+                    },
+                    "gameState": {
+                      "type": "string"
+                    },
+                    "gameScheduleState": {
+                      "type": "string"
+                    },
+                    "ticketsLink": {
+                      "type": "string"
+                    },
+                    "gameCenterLink": {
+                      "type": "string"
+                    },
+                    "venue": {
+                      "type": "object",
+                      "properties": {
+                        "default": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "tvBroadcasts": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "market": {
+                            "type": "string"
+                          },
+                          "countryCode": {
+                            "type": "string"
+                          },
+                          "network": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "awayTeam": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "abbrev": {
+                          "type": "string"
+                        },
+                        "logo": {
+                          "type": "string"
+                        },
+                        "darkLogo": {
+                          "type": "string"
+                        },
+                        "radioLink": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "object",
+                          "properties": {
+                            "default": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "score": {
+                          "type": "integer"
+                        },
+                        "sog": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "homeTeam": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "abbrev": {
+                          "type": "string"
+                        },
+                        "logo": {
+                          "type": "string"
+                        },
+                        "darkLogo": {
+                          "type": "string"
+                        },
+                        "radioLink": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "object",
+                          "properties": {
+                            "default": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "score": {
+                          "type": "integer"
+                        },
+                        "sog": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "periodDescriptor": {
+                      "type": "object",
+                      "properties": {
+                        "number": {
+                          "type": "integer"
+                        },
+                        "periodType": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "gameOutcome": {
+                      "type": "object",
+                      "nullable": true,
+                      "description": "If the period ended in regulation or overtime (only available in past games)",
+                      "properties": {
+                        "lastPeriodType": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "clock": {
+                      "type": "object",
+                      "properties": {
+                        "timeRemaining": {
+                          "type": "string"
+                        },
+                        "secondsRemaining": {
+                          "type": "integer"
+                        },
+                        "running": {
+                          "type": "boolean"
+                        },
+                        "inIntermission": {
+                          "type": "boolean"
+                        }
+                      }
+                    },
+                    "rosterSpots": {
+                      "type": "object",
+                      "properties": {
+                        "type": "object",
+                        "properties": {
+                          "teamId": {
+                            "type": "integer"
+                          },
+                          "playerId": {
+                            "type": "integer"
+                          },
+                          "firstName": {
+                            "type": "object",
+                            "properties": {
+                              "default": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "lastName": {
+                            "type": "object",
+                            "properties": {
+                              "default": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "sweaterNumber": {
+                            "type": "integer"
+                          },
+                          "positionCode": {
+                            "type": "string"
+                          },
+                          "headshot": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "displayPeriod": {
+                      "type": "string"
+                    },
+                    "plays": {
+                      "type": "object",
+                      "properties": {
+                        "plays": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "eventId": {
+                                "type": "integer"
+                              },
+                              "period": {
+                                "type": "integer"
+                              },
+                              "sortOrder": {
+                                "type": "integer"
+                              },
+                              "typeCode": {
+                                "type": "integer"
+                              },
+                              "timeInPeriod": {
+                                "type": "string"
+                              },
+                              "timeRemaining": {
+                                "type": "string"
+                              },
+                              "situationCode": {
+                                "type": "string"
+                              },
+                              "homeTeamDefendingSide": {
+                                "type": "string"
+                              },
+                              "typeDescKey": {
+                                "type": "string"
+                              },
+                              "periodDescriptor": {
+                                "type": "object",
+                                "properties": {
+                                  "number": {
+                                    "type": "integer"
+                                  },
+                                  "periodType": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "details": {
+                                "type": "object",
+                                "properties": {
+                                  "eventOwnerTeamId": {
+                                    "type": "integer",
+                                    "nullable": true
+                                  },
+                                  "losingPlayerId": {
+                                    "type": "integer",
+                                    "nullable": true
+                                  },
+                                  "winningPlayerId": {
+                                    "type": "integer",
+                                    "nullable": true
+                                  },
+                                  "xCoord": {
+                                    "type": "integer",
+                                    "nullable": true
+                                  },
+                                  "yCoord": {
+                                    "type": "integer",
+                                    "nullable": true
+                                  },
+                                  "zoneCode": {
+                                    "type": "object",
+                                    "nullable": true
+                                  },
+                                  "reason": {
+                                    "type": "string",
+                                    "nullable": true
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/score/2023-11-08": {
       "get": {
         "summary": "/v1/score/2023-11-08",
