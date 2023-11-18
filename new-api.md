@@ -713,3 +713,6 @@ The NHL has surprised us all with a new API, so that means a new file to track a
 
 `GET https://api-web.nhle.com/v1/gamecenter/GAME_ID/boxscore` |  Boxscore details
 
+`Get https://api-web.nhle.com/v1/gamecenter/GAME_ID/play-by-play`  |  Detailed play-by-play
+
+`Get https://api-web.nhle.com/v1/gamecenter/GAME_ID/landing` |  ADD description
