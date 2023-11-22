@@ -712,4 +712,11 @@ The NHL has surprised us all with a new API, so that means a new file to track a
 `GET https://api-web.nhle.com/v1/score/now` | Linescore details
 
 `GET https://api-web.nhle.com/v1/gamecenter/GAME_ID/boxscore` |  Boxscore details
+`GET https://api-web.nhle.com/v1/gamecenter/GAME_ID/play-by-play` | PBP details
 
+These two combined make what the previous live JSON used to be. Details like the time
+of the day when the game ends are gone completely.
+
+# Player search
+
+`GET https://search.d3.nhle.com/api/v1/search/player?culture=en-us&limit=20&q=STRING` | Searches for a string. Culture is the locale, and active=0|1 may be specified.
