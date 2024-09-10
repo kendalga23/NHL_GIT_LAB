@@ -7,6 +7,8 @@ The NHL has surprised us all with a new API, so that means a new file to track a
 
 `TEAM_ABBR` is shorthand for the team abbreviation, using the 3 letter ones (WSH, CGY, LAK, etc)
 
+`SEASON_ID` is code for the 8 character season id in the format `<seasonStartYear><seasonEndYear>` e.g. for the 23-24 season: `20232024`
+
 `GAME_ID` has so far remained the same as before, a combination of season year and a unique id element
 
 # Endpoint Tables
@@ -703,7 +705,9 @@ The NHL has surprised us all with a new API, so that means a new file to track a
 
 # Rosters
 
-`GET https://api-web.nhle.com/v1/roster/TEAM_ABBR/now` | ADD description
+`GET https://api-web.nhle.com/v1/roster/TEAM_ABBR/SEASON_ID` | 
+
+e.g. `https://api-web.nhle.com/v1/roster/buf/20232024`
 
 `GET https://api-web.nhle.com/v1/roster-season/TEAM_ABBR` | ADD description
 
