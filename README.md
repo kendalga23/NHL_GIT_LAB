@@ -1,5 +1,14 @@
 # NHL API Documentation
 
+## Latest News
+
+### 2024-11-02
+
+The NHL has kindly provided us with a very handy (but ugly) file called application.wadl which documents their entire API. I have taken some time and written a python script (scripts/wadl-map.py) that automatically querries the endpoint that provides the file, converst the XML to JSON and parses it out in a simple but understandable format. The markdown file in the scripts folder provides an example of the output.
+
+**This is a work in progress** - use it at your own discretion, eventually it will be updated to create a much nicer output, possibly even with markdown formatting and will eventually be setup on a website to auto-update every so often and provide browsable documentation that requires less maintenance than the hand-written documentation that exists now.
+
+
 ---
 ## About this Project
 
@@ -12,7 +21,6 @@ more digestible form.
 Eventually build documentation on features such as cayenneExp which allows for 
 retrieval of very complex documentation and perhaps even a more thorough set of 
 documentation including examples in multiple common langages (such as using Swagger)
-
 
 ## Files
 

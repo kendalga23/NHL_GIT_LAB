@@ -1,6 +1,24 @@
+"""
+
+Description: A simple script to query the NHL API and generate simple 
+documentation
+
+License: MIT, see LICENSE file for more details
+
+"""
+
 import requests
 import xmltodict
 import json
+
+__author__ = 'Drew Hynes'
+__copyright__ = 'Copyright 2024, NHL API Documentation'
+__credits__ = ['Kevin Sidwar','Jon Ursenbach']
+__license__ = 'MIT'
+__version__ = '0.0.1'
+__maintainer__ = 'Drew Hynes'
+__email__ = 'drew.hynes@gmail.com'
+__status__ = 'Alpha'
 
 url = "https://api-web.nhle.com/application.wadl?detail=true"
 attributes = [

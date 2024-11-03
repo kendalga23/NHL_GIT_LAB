@@ -1,3 +1,7 @@
+This is example output from wadl-map.py
+
+```
+
 0: v1/player-spotlight
 method
 
@@ -302,3 +306,4 @@ resource
 jersey:extended
 
 ++++++++++++++++++
+```
